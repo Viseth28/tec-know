@@ -170,7 +170,7 @@ const App: React.FC = () => {
               </div>
               <div>
                 <p class="text-xs text-slate-500 uppercase">Device</p>
-                <p class="font-medium">${log.phoneModel || 'N/A'}</p>
+                <p class="font-medium">${(log as any).phoneModel || 'N/A'}</p>
               </div>
               <div>
                 <p class="text-xs text-slate-500 uppercase">Time</p>
