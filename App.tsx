@@ -27,8 +27,8 @@ const App: React.FC = () => {
   const [selectedPhoneForBorrow, setSelectedPhoneForBorrow] = useState<Phone | null>(null);
   const [selectedPhoneForReturn, setSelectedPhoneForReturn] = useState<Phone | null>(null);
 
-  const fetchData = useCallback(async () => {
-    setIsLoading(true);
+  const fetchData = useCallback(async (background = false) => {
+    if (!background) setIsLoading(true);
     try {
       const [phonesData, fieldsData, logsData] = await Promise.all([
         dbService.getPhones(),
@@ -42,7 +42,7 @@ const App: React.FC = () => {
       console.error("Data sync failure", err);
       setSyncStatus('error');
     } finally {
-      setIsLoading(false);
+      if (!background) setIsLoading(false);
     }
   }, []);
 
@@ -76,21 +76,32 @@ const App: React.FC = () => {
   const addPhone = async (newPhone: Phone) => {
     setSyncStatus('syncing');
     setPhones(prev => [...prev, newPhone]);
-    await dbService.savePhone(newPhone, currentUser?.name || 'System');
-    setSyncStatus('synced');
-    await fetchData(); 
+    try {
+      await dbService.savePhone(newPhone, currentUser?.name || 'System');
+      setSyncStatus('synced');
+    } catch (error) {
+      console.error("Failed to add phone", error);
+      setSyncStatus('error');
+    }
+    await fetchData(true); 
   };
 
   const updatePhone = async (updatedPhone: Phone) => {
     setSyncStatus('syncing');
     setPhones(prev => prev.map(p => p.id === updatedPhone.id ? updatedPhone : p));
-    await dbService.savePhone(updatedPhone, currentUser?.name || 'System');
-    setSyncStatus('synced');
-    await fetchData(); 
+    try {
+      await dbService.savePhone(updatedPhone, currentUser?.name || 'System');
+      setSyncStatus('synced');
+    } catch (error) {
+      console.error("Failed to update phone", error);
+      setSyncStatus('error');
+    }
+    await fetchData(true); 
   };
 
   const updatePhonesBatch = async (updatedPhones: Phone[]) => {
     setSyncStatus('syncing');
+    // Optimistic update
     setPhones(prev => {
       const updated = [...prev];
       for (const phone of updatedPhones) {
@@ -99,27 +110,115 @@ const App: React.FC = () => {
       }
       return updated;
     });
-    for (const phone of updatedPhones) {
-      await dbService.savePhone(phone, currentUser?.name || 'System');
+
+    try {
+      const userName = currentUser?.name || 'System';
+      // Parallelize save operations
+      await Promise.all(updatedPhones.map(phone => dbService.savePhone(phone, userName)));
+      setSyncStatus('synced');
+    } catch (error) {
+      console.error("Batch update failed", error);
+      setSyncStatus('error');
     }
-    setSyncStatus('synced');
-    await fetchData(); 
+    await fetchData(true); 
   };
 
   const deletePhone = async (id: string) => {
     setSyncStatus('syncing');
     setPhones(prev => prev.filter(p => p.id !== id));
-    await dbService.deletePhone(id, currentUser?.name || 'System');
-    setSyncStatus('synced');
-    await fetchData(); 
+    try {
+      await dbService.deletePhone(id, currentUser?.name || 'System');
+      setSyncStatus('synced');
+    } catch (error) {
+      console.error("Failed to delete phone", error);
+      setSyncStatus('error');
+    }
+    await fetchData(true); 
+  };
+
+  const handleDownloadInvoice = (log: ActivityEntry) => {
+    const invoiceContent = `
+      <!DOCTYPE html>
+      <html>
+      <head>
+        <title>Invoice - ${log.id}</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+      </head>
+      <body class="p-8 bg-white text-slate-900">
+        <div class="max-w-2xl mx-auto border border-slate-200 rounded-lg p-8 shadow-sm">
+          <div class="flex justify-between items-center mb-8">
+            <div>
+              <h1 class="text-2xl font-bold text-slate-900">INVOICE</h1>
+              <p class="text-slate-500 text-sm">Transaction ID: ${log.id}</p>
+            </div>
+            <div class="text-right">
+              <p class="font-bold text-lg">Tec-Know</p>
+              <p class="text-slate-500 text-sm">${new Date(log.timestamp).toLocaleDateString()}</p>
+            </div>
+          </div>
+
+          <div class="mb-8 p-6 bg-slate-50 rounded-lg">
+            <h3 class="font-bold text-slate-700 mb-4 uppercase tracking-wider text-sm">Transaction Details</h3>
+            <div class="grid grid-cols-2 gap-4">
+              <div>
+                <p class="text-xs text-slate-500 uppercase">Action</p>
+                <p class="font-medium capitalize">${log.action}</p>
+              </div>
+              <div>
+                <p class="text-xs text-slate-500 uppercase">Handled By</p>
+                <p class="font-medium">${log.user}</p>
+              </div>
+              <div>
+                <p class="text-xs text-slate-500 uppercase">Device</p>
+                <p class="font-medium">${log.phoneModel || 'N/A'}</p>
+              </div>
+              <div>
+                <p class="text-xs text-slate-500 uppercase">Time</p>
+                <p class="font-medium">${new Date(log.timestamp).toLocaleTimeString()}</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="mb-8">
+            <h3 class="font-bold text-slate-700 mb-2 uppercase tracking-wider text-sm">Description</h3>
+            <div class="p-4 border border-slate-200 rounded bg-white">
+              <p class="text-slate-600">${typeof log.details === 'string' ? log.details : JSON.stringify(log.details, null, 2)}</p>
+            </div>
+          </div>
+
+          <div class="mt-12 pt-8 border-t border-slate-200 flex justify-between items-end">
+            <div class="text-center">
+              <div class="w-32 border-b border-slate-300 mb-2"></div>
+              <p class="text-xs text-slate-400 uppercase">Authorized Signature</p>
+            </div>
+            <p class="text-xs text-slate-400">Generated automatically by Tec-Know System</p>
+          </div>
+        </div>
+        <script>
+          window.onload = () => { window.print(); }
+        </script>
+      </body>
+      </html>
+    `;
+
+    const printWindow = window.open('', '_blank');
+    if (printWindow) {
+      printWindow.document.write(invoiceContent);
+      printWindow.document.close();
+    }
   };
 
   const updateCustomFields = async (newFields: CustomFieldDefinition[]) => {
     setSyncStatus('syncing');
     setCustomFields(newFields);
-    await dbService.saveCustomFieldDefinitions(newFields, currentUser?.name || 'System');
-    setSyncStatus('synced');
-    await fetchData(); 
+    try {
+      await dbService.saveCustomFieldDefinitions(newFields, currentUser?.name || 'System');
+      setSyncStatus('synced');
+    } catch (error) {
+      console.error("Failed to update fields", error);
+      setSyncStatus('error');
+    }
+    await fetchData(true); 
   };
 
   if (!currentUser && !isLoading) {
@@ -174,7 +273,7 @@ const App: React.FC = () => {
       ) : (
         <Routes>
           <Route path="/" element={<Navigate to="/dashboard" replace />} />
-          <Route path="/dashboard" element={<Dashboard phones={phones} logs={logs} />} />
+          <Route path="/dashboard" element={<Dashboard phones={phones} logs={logs} onDownloadInvoice={handleDownloadInvoice} />} />
           <Route path="/inventory" element={<Inventory phones={phones} onUpdate={updatePhone} onDelete={deletePhone} customFieldDefinitions={customFields} onNavigateToBorrow={(p) => { setSelectedPhoneForBorrow(p); navigate('/borrow'); }} onNavigateToReturn={(p) => { setSelectedPhoneForReturn(p); navigate('/return'); }} />} />
           <Route path="/register" element={<RegisterPhone onAdd={addPhone} lastIndex={phones.length} customFieldDefinitions={customFields} />} />
           <Route path="/borrow" element={<BorrowPhone phones={phones} onUpdate={updatePhone} onBatchUpdate={updatePhonesBatch} initialPhone={selectedPhoneForBorrow} />} />
