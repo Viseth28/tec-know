@@ -35,7 +35,7 @@ export const Dashboard: React.FC<DashboardProps> = ({ phones, logs, onDownloadIn
       const generateImage = async () => {
         try {
           await new Promise(resolve => setTimeout(resolve, 100));
-          const dataUrl = await htmlToImage.toPng(invoiceRef.current!, { quality: 0.95, backgroundColor: 'white' });
+          const dataUrl = await htmlToImage.toPng(invoiceRef.current!, { quality: 1.0, backgroundColor: 'white', pixelRatio: 4 });
           const link = document.createElement('a');
           link.download = `Invoice_${invoiceData.invoiceId}.png`;
           link.href = dataUrl;

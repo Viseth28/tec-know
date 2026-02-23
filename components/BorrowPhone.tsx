@@ -99,7 +99,7 @@ export const BorrowPhone: React.FC<BorrowPhoneProps> = ({ phones, onUpdate, onBa
     try {
       const options = {
         backgroundColor: '#ffffff',
-        pixelRatio: 3, 
+        pixelRatio: 4, 
         cacheBust: true,
       };
 
