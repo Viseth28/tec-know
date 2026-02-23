@@ -143,55 +143,73 @@ const App: React.FC = () => {
       <head>
         <title>Invoice - ${log.id}</title>
         <script src="https://cdn.tailwindcss.com"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+        <style>
+          body { font-family: 'Inter', sans-serif; }
+        </style>
       </head>
-      <body class="p-8 bg-white text-slate-900">
-        <div class="max-w-2xl mx-auto border border-slate-200 rounded-lg p-8 shadow-sm">
-          <div class="flex justify-between items-center mb-8">
+      <body class="bg-white text-gray-900 p-12 print:p-0">
+        <div class="max-w-3xl mx-auto bg-white">
+          <div class="flex justify-between items-start mb-12">
             <div>
-              <h1 class="text-2xl font-bold text-slate-900">INVOICE</h1>
-              <p class="text-slate-500 text-sm">Transaction ID: ${log.id}</p>
+              <div class="flex items-center gap-2 mb-1">
+                <div class="w-8 h-8 bg-black rounded-lg flex items-center justify-center text-white font-bold">T</div>
+                <h1 class="text-2xl font-bold tracking-tight">Tec-Know</h1>
+              </div>
+              <p class="text-gray-500 text-sm">Device Management System</p>
             </div>
             <div class="text-right">
-              <p class="font-bold text-lg">Tec-Know</p>
-              <p class="text-slate-500 text-sm">${new Date(log.timestamp).toLocaleDateString()}</p>
+              <h2 class="text-4xl font-light text-gray-200 uppercase tracking-widest mb-2">Invoice</h2>
+              <p class="text-sm font-medium text-gray-900">#${log.id.slice(0, 8).toUpperCase()}</p>
+              <p class="text-sm text-gray-500">${new Date(log.timestamp).toLocaleDateString(undefined, { year: 'numeric', month: 'long', day: 'numeric' })}</p>
             </div>
           </div>
 
-          <div class="mb-8 p-6 bg-slate-50 rounded-lg">
-            <h3 class="font-bold text-slate-700 mb-4 uppercase tracking-wider text-sm">Transaction Details</h3>
-            <div class="grid grid-cols-2 gap-4">
-              <div>
-                <p class="text-xs text-slate-500 uppercase">Action</p>
-                <p class="font-medium capitalize">${log.action}</p>
+          <div class="grid grid-cols-2 gap-12 mb-12">
+            <div>
+              <h3 class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4">Transaction Details</h3>
+              <div class="space-y-3">
+                <div>
+                  <p class="text-xs text-gray-500">Action Type</p>
+                  <p class="font-medium capitalize text-gray-900">${log.action}</p>
+                </div>
+                <div>
+                  <p class="text-xs text-gray-500">Processed By</p>
+                  <p class="font-medium text-gray-900">${log.user}</p>
+                </div>
+                 <div>
+                  <p class="text-xs text-gray-500">Time</p>
+                  <p class="font-medium text-gray-900">${new Date(log.timestamp).toLocaleTimeString()}</p>
+                </div>
               </div>
-              <div>
-                <p class="text-xs text-slate-500 uppercase">Handled By</p>
-                <p class="font-medium">${log.user}</p>
-              </div>
-              <div>
-                <p class="text-xs text-slate-500 uppercase">Device</p>
-                <p class="font-medium">${(log as any).phoneModel || 'N/A'}</p>
-              </div>
-              <div>
-                <p class="text-xs text-slate-500 uppercase">Time</p>
-                <p class="font-medium">${new Date(log.timestamp).toLocaleTimeString()}</p>
+            </div>
+            <div>
+              <h3 class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4">Device Info</h3>
+              <div class="bg-gray-50 rounded-lg p-4 border border-gray-100">
+                <p class="text-xs text-gray-500 mb-1">Model</p>
+                <p class="font-semibold text-gray-900 text-lg">${(log as any).phoneModel || 'N/A'}</p>
               </div>
             </div>
           </div>
 
-          <div class="mb-8">
-            <h3 class="font-bold text-slate-700 mb-2 uppercase tracking-wider text-sm">Description</h3>
-            <div class="p-4 border border-slate-200 rounded bg-white">
-              <p class="text-slate-600">${typeof log.details === 'string' ? log.details : JSON.stringify(log.details, null, 2)}</p>
+          <div class="mb-12">
+            <h3 class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4">Description & Notes</h3>
+            <div class="p-6 border border-gray-200 rounded-xl bg-white shadow-sm">
+              <p class="text-gray-600 leading-relaxed text-sm">${typeof log.details === 'string' ? log.details : JSON.stringify(log.details, null, 2)}</p>
             </div>
           </div>
 
-          <div class="mt-12 pt-8 border-t border-slate-200 flex justify-between items-end">
-            <div class="text-center">
-              <div class="w-32 border-b border-slate-300 mb-2"></div>
-              <p class="text-xs text-slate-400 uppercase">Authorized Signature</p>
+          <div class="pt-12 border-t border-gray-100">
+            <div class="flex justify-between items-end">
+              <div class="text-xs text-gray-400">
+                <p>Authorized electronically</p>
+                <p>Tec-Know System Generated</p>
+              </div>
+              <div class="text-right">
+                 <div class="h-12 w-32 border-b border-gray-300 mb-2"></div>
+                 <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider">Signature</p>
+              </div>
             </div>
-            <p class="text-xs text-slate-400">Generated automatically by Tec-Know System</p>
           </div>
         </div>
         <script>
@@ -231,28 +249,33 @@ const App: React.FC = () => {
 
   if (needsFileVerify) {
     return (
-      <div className="min-h-screen bg-slate-900 flex items-center justify-center p-6 text-center">
-        <div className="max-w-md w-full bg-white rounded-[2.5rem] p-12 shadow-2xl animate-in zoom-in-95">
-          <div className="w-20 h-20 bg-blue-100 text-blue-600 rounded-3xl flex items-center justify-center mx-auto mb-8 shadow-xl shadow-blue-500/10">
-            <FolderCheck size={40} />
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center p-6">
+        <div className="max-w-md w-full bg-white rounded-2xl p-8 shadow-xl border border-gray-100 animate-in fade-in zoom-in-95 duration-300">
+          <div className="w-16 h-16 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
+            <FolderCheck size={32} />
           </div>
-          <h2 className="text-3xl font-black text-slate-900 mb-4">Folder Authorization</h2>
-          <p className="text-slate-500 font-medium mb-10 leading-relaxed">
-            The system needs permission to access the data folder <b>{activeFileName || 'your storage directory'}</b> to manage <b>db.json</b> and its mirror.
-          </p>
-          <button 
-            onClick={handleVerifyFile}
-            className="w-full py-5 bg-blue-600 text-white font-black rounded-2xl shadow-xl shadow-blue-500/30 hover:bg-blue-700 transition-all flex items-center justify-center gap-3 active:scale-95"
-          >
-            <RefreshCw size={20} />
-            Authorize Folder Access
-          </button>
-          <button 
-            onClick={() => { dbService.setMode('local_storage'); setNeedsFileVerify(false); fetchData(); }}
-            className="mt-6 text-sm font-bold text-slate-400 hover:text-slate-600"
-          >
-            Switch to Browser Cache (Unmirrored)
-          </button>
+          <div className="text-center mb-8">
+            <h2 className="text-2xl font-bold text-gray-900 mb-2">Connect Storage</h2>
+            <p className="text-gray-500 text-sm leading-relaxed">
+              Please authorize access to <b>{activeFileName || 'your data folder'}</b> to sync the database.
+            </p>
+          </div>
+          
+          <div className="space-y-3">
+            <button 
+              onClick={handleVerifyFile}
+              className="w-full py-3.5 bg-gray-900 text-white font-semibold rounded-xl hover:bg-black transition-all flex items-center justify-center gap-2 active:scale-[0.98] shadow-lg shadow-gray-900/20"
+            >
+              <RefreshCw size={18} />
+              Authorize Access
+            </button>
+            <button 
+              onClick={() => { dbService.setMode('local_storage'); setNeedsFileVerify(false); fetchData(); }}
+              className="w-full py-3.5 bg-white text-gray-500 font-semibold rounded-xl border border-gray-200 hover:bg-gray-50 hover:text-gray-700 transition-all active:scale-[0.98]"
+            >
+              Use Local Cache
+            </button>
+          </div>
         </div>
       </div>
     );
@@ -266,9 +289,14 @@ const App: React.FC = () => {
       activeFileName={activeFileName}
     >
       {isLoading ? (
-        <div className="flex flex-col items-center justify-center h-[60vh] space-y-4">
-          <div className="w-12 h-12 border-4 border-blue-600 border-t-transparent rounded-full animate-spin"></div>
-          <p className="text-gray-500 font-black uppercase tracking-widest text-xs animate-pulse">Syncing Engine...</p>
+        <div className="flex flex-col items-center justify-center min-h-[60vh] space-y-6">
+          <div className="relative">
+            <div className="w-16 h-16 border-4 border-gray-100 border-t-blue-600 rounded-full animate-spin"></div>
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
+            </div>
+          </div>
+          <p className="text-gray-400 font-medium text-sm tracking-wide animate-pulse">Loading System...</p>
         </div>
       ) : (
         <Routes>
