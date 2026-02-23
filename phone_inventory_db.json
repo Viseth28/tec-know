@@ -1,0 +1,113 @@
+{
+  "phones": [
+    {
+      "id": "1",
+      "brand": "Apple",
+      "model": "iPhone 15 Pro",
+      "price": 999,
+      "imei1": "358123456789012",
+      "imei2": "358123456789013",
+      "condition": "New",
+      "status": "Available",
+      "lastUpdate": "2024-03-20"
+    },
+    {
+      "id": "2",
+      "brand": "Samsung",
+      "model": "Galaxy S24 Ultra",
+      "price": 1199,
+      "imei1": "359123456789012",
+      "imei2": "359123456789013",
+      "condition": "Used",
+      "status": "On Borrow",
+      "lastUpdate": "2024-03-18",
+      "borrower": {
+        "name": "John Doe",
+        "department": "Marketing",
+        "date": "2024-03-18"
+      }
+    },
+    {
+      "id": "3",
+      "brand": "Google",
+      "model": "Pixel 8 Pro",
+      "price": 899,
+      "imei1": "360123456789012",
+      "imei2": "360123456789013",
+      "condition": "Broken",
+      "status": "Available",
+      "lastUpdate": "2024-03-15"
+    },
+    {
+      "id": "47365",
+      "brand": "TECNO",
+      "model": "RANDOM",
+      "price": 199,
+      "imei1": "6973553370415",
+      "imei2": "6973553370415",
+      "condition": "New",
+      "status": "On Borrow",
+      "lastUpdate": "2026-02-04",
+      "customFields": {},
+      "borrower": {
+        "name": "Viseth",
+        "department": "Marketing",
+        "date": "2026-02-04"
+      }
+    },
+    {
+      "id": "70913",
+      "brand": "TECNO",
+      "model": "RANDOM",
+      "price": 199,
+      "imei1": "123",
+      "imei2": "354529614004927",
+      "condition": "New",
+      "status": "On Borrow",
+      "lastUpdate": "2026-02-04",
+      "customFields": {},
+      "borrower": {
+        "name": "Viseth",
+        "department": "Marketing",
+        "date": "2026-02-04"
+      }
+    },
+    {
+      "id": "6014",
+      "brand": "TECNO",
+      "model": "RANDOM",
+      "price": 199,
+      "imei1": "1234",
+      "imei2": "6935364099862",
+      "condition": "New",
+      "status": "Available",
+      "lastUpdate": "2026-02-04",
+      "customFields": {}
+    },
+    {
+      "id": "74915",
+      "brand": "TECNO",
+      "model": "RANDOM",
+      "price": 199,
+      "imei1": "12345",
+      "imei2": "0152502274",
+      "condition": "New",
+      "status": "Available",
+      "lastUpdate": "2026-02-04",
+      "customFields": {}
+    },
+    {
+      "id": "34164",
+      "brand": "TECNO",
+      "model": "RANDOM",
+      "price": 199,
+      "imei1": "355441123225218",
+      "imei2": "355441123225226",
+      "condition": "New",
+      "status": "Available",
+      "lastUpdate": "2026-02-04",
+      "customFields": {}
+    }
+  ],
+  "fields": []
+}

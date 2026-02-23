@@ -1,0 +1,844 @@
+{
+  "phones": [
+    {
+      "id": "600109",
+      "brand": "SPARK Slim",
+      "model": "KM7k",
+      "price": 249,
+      "imei1": "357755641518749",
+      "imei2": "357755645221662",
+      "condition": "Used",
+      "status": "On Borrow",
+      "lastUpdate": "2026-02-04",
+      "customFields": {},
+      "borrower": {
+        "name": "Ly David",
+        "department": "Marketing",
+        "date": "2026-02-04"
+      }
+    },
+    {
+      "id": "84162",
+      "brand": "CAMON 40 Pro",
+      "model": "CM7",
+      "price": 249,
+      "imei1": "357702280019720",
+      "imei2": "357702288480213",
+      "condition": "Used",
+      "status": "On Borrow",
+      "lastUpdate": "2026-02-04",
+      "customFields": {},
+      "borrower": {
+        "name": "Viseth",
+        "department": "Marketing",
+        "date": "2026-02-04"
+      }
+    },
+    {
+      "id": "48895",
+      "brand": "MEGAPAD SE",
+      "model": "T1102",
+      "price": 169,
+      "imei1": "563178930442847",
+      "imei2": "563178930442847",
+      "condition": "Used",
+      "status": "On Borrow",
+      "lastUpdate": "2026-02-10",
+      "customFields": {},
+      "borrower": {
+        "name": "CFU",
+        "department": "WowNow",
+        "date": "2026-02-10"
+      }
+    },
+    {
+      "id": "25333",
+      "brand": "Megapad Pro",
+      "model": "T1201",
+      "price": 209,
+      "imei1": "520937820015634",
+      "imei2": "520937820015634",
+      "condition": "Used",
+      "status": "On Borrow",
+      "lastUpdate": "2026-02-10",
+      "customFields": {},
+      "borrower": {
+        "name": "CFU",
+        "department": "WowNow",
+        "date": "2026-02-10"
+      }
+    },
+    {
+      "id": "907978",
+      "brand": "POP 20",
+      "model": "KN3",
+      "price": 109,
+      "imei1": "357649320031787",
+      "imei2": "357649328795573",
+      "condition": "New",
+      "status": "On Borrow",
+      "lastUpdate": "2026-02-10",
+      "customFields": {},
+      "borrower": {
+        "name": "CFU",
+        "department": "WowNow",
+        "date": "2026-02-10"
+      }
+    },
+    {
+      "id": "405333",
+      "brand": "POP 20",
+      "model": "KN3",
+      "price": 109,
+      "imei1": "357649320027983",
+      "imei2": "357649326612861",
+      "condition": "New",
+      "status": "On Borrow",
+      "lastUpdate": "2026-02-10",
+      "customFields": {},
+      "borrower": {
+        "name": "CFU",
+        "department": "WowNow",
+        "date": "2026-02-10"
+      }
+    }
+  ],
+  "customFields": [],
+  "logs": [
+    {
+      "id": "zien89jar",
+      "timestamp": "2026-02-10T04:11:05.817Z",
+      "action": "UPDATE",
+      "details": "POP 20 KN3 (357649320031787)",
+      "user": "System Administrator"
+    },
+    {
+      "id": "xsl2n3utm",
+      "timestamp": "2026-02-10T04:11:05.807Z",
+      "action": "UPDATE",
+      "details": "Megapad Pro T1201 (520937820015634)",
+      "user": "System Administrator"
+    },
+    {
+      "id": "3rbobop1n",
+      "timestamp": "2026-02-10T04:11:05.797Z",
+      "action": "UPDATE",
+      "details": "MEGAPAD SE T1102 (563178930442847)",
+      "user": "System Administrator"
+    },
+    {
+      "id": "npbexcsp8",
+      "timestamp": "2026-02-10T04:10:20.348Z",
+      "action": "UPDATE",
+      "details": "POP 20 KN3 (357649320031787)",
+      "user": "System Administrator"
+    },
+    {
+      "id": "fbu16o3ag",
+      "timestamp": "2026-02-10T04:10:20.337Z",
+      "action": "UPDATE",
+      "details": "Megapad Pro T1201 (520937820015634)",
+      "user": "System Administrator"
+    },
+    {
+      "id": "l9px0c9yl",
+      "timestamp": "2026-02-10T04:10:20.323Z",
+      "action": "UPDATE",
+      "details": "MEGAPAD SE T1102 (563178930442847)",
+      "user": "System Administrator"
+    },
+    {
+      "id": "nq6pdmdje",
+      "timestamp": "2026-02-10T04:09:34.851Z",
+      "action": "UPDATE",
+      "details": "POP 20 KN3 (357649320027983)",
+      "user": "System Administrator"
+    },
+    {
+      "id": "emxd4t864",
+      "timestamp": "2026-02-10T04:09:34.842Z",
+      "action": "UPDATE",
+      "details": "POP 20 KN3 (357649320031787)",
+      "user": "System Administrator"
+    },
+    {
+      "id": "o7m3cmosq",
+      "timestamp": "2026-02-10T04:09:34.833Z",
+      "action": "UPDATE",
+      "details": "Megapad Pro T1201 (520937820015634)",
+      "user": "System Administrator"
+    },
+    {
+      "id": "qy6lrmeb2",
+      "timestamp": "2026-02-10T04:09:34.823Z",
+      "action": "UPDATE",
+      "details": "MEGAPAD SE T1102 (563178930442847)",
+      "user": "System Administrator"
+    },
+    {
+      "id": "l484tkw4d",
+      "timestamp": "2026-02-10T04:08:23.463Z",
+      "action": "UPDATE",
+      "details": "POP 20 KN3 (357649320027983)",
+      "user": "System Administrator"
+    },
+    {
+      "id": "p105zia2k",
+      "timestamp": "2026-02-10T04:08:19.004Z",
+      "action": "UPDATE",
+      "details": "POP 20 KN3 (357649320031787)",
+      "user": "System Administrator"
+    },
+    {
+      "id": "mzd3rr2i7",
+      "timestamp": "2026-02-10T04:08:13.268Z",
+      "action": "UPDATE",
+      "details": "MEGAPAD SE T1102 (563178930442847)",
+      "user": "System Administrator"
+    },
+    {
+      "id": "gvtl167sd",
+      "timestamp": "2026-02-10T03:54:38.477Z",
+      "action": "UPDATE",
+      "details": "Megapad Pro T1201 (520937820015634)",
+      "user": "System Administrator"
+    },
+    {
+      "id": "l0ngn2p91",
+      "timestamp": "2026-02-10T03:53:23.125Z",
+      "action": "UPDATE",
+      "details": "POP 20 KN3 (357649320031787)",
+      "user": "System Administrator"
+    },
+    {
+      "id": "mugx8d9eh",
+      "timestamp": "2026-02-10T03:53:23.092Z",
+      "action": "UPDATE",
+      "details": "Megapad Pro T1201 (520937820015634)",
+      "user": "System Administrator"
+    },
+    {
+      "id": "z6qmvojfu",
+      "timestamp": "2026-02-10T03:53:23.050Z",
+      "action": "UPDATE",
+      "details": "MEGAPAD SE T1102 (563178930442847)",
+      "user": "System Administrator"
+    },
+    {
+      "id": "tfegxh50r",
+      "timestamp": "2026-02-10T03:52:31.520Z",
+      "action": "UPDATE",
+      "details": "Megapad Pro T1201 (520937820015634)",
+      "user": "System Administrator"
+    },
+    {
+      "id": "aloohojxe",
+      "timestamp": "2026-02-10T03:51:48.399Z",
+      "action": "UPDATE",
+      "details": "MEGAPAD SE T1102 (563178930442847)",
+      "user": "System Administrator"
+    },
+    {
+      "id": "tarhi8hn8",
+      "timestamp": "2026-02-10T03:51:39.404Z",
+      "action": "UPDATE",
+      "details": "POP 20 KN3 (357649320031787)",
+      "user": "System Administrator"
+    },
+    {
+      "id": "sua22tf2i",
+      "timestamp": "2026-02-10T03:03:13.799Z",
+      "action": "UPDATE",
+      "details": "POP 20 KN3 (357649320027983)",
+      "user": "System Administrator"
+    },
+    {
+      "id": "38hk5r47u",
+      "timestamp": "2026-02-10T03:03:00.328Z",
+      "action": "UPDATE",
+      "details": "MEGAPAD SE T1102 (563178930442847)",
+      "user": "System Administrator"
+    },
+    {
+      "id": "iqhqwnub6",
+      "timestamp": "2026-02-10T02:58:41.765Z",
+      "action": "UPDATE",
+      "details": "POP 20 KN3 (357649320031787)",
+      "user": "System Administrator"
+    },
+    {
+      "id": "qllljwa9p",
+      "timestamp": "2026-02-10T02:56:05.359Z",
+      "action": "UPDATE",
+      "details": "Megapad Pro T1201 (520937820015634)",
+      "user": "System Administrator"
+    },
+    {
+      "id": "o27hlpmxr",
+      "timestamp": "2026-02-10T02:55:01.198Z",
+      "action": "UPDATE",
+      "details": "CAMON 40 Pro CM7 (357702280019720)",
+      "user": "System Administrator"
+    },
+    {
+      "id": "f21fynsui",
+      "timestamp": "2026-02-10T02:54:32.732Z",
+      "action": "UPDATE",
+      "details": "SPARK Slim KM7k (357755641518749)",
+      "user": "System Administrator"
+    },
+    {
+      "id": "35dx6l1ug",
+      "timestamp": "2026-02-10T02:53:14.594Z",
+      "action": "REGISTER",
+      "details": "POP 20 KN3 (357649320027983)",
+      "user": "System Administrator"
+    },
+    {
+      "id": "jkh2vc3d6",
+      "timestamp": "2026-02-10T02:53:14.547Z",
+      "action": "REGISTER",
+      "details": "POP 20 KN3 (357649320031787)",
+      "user": "System Administrator"
+    },
+    {
+      "id": "cf7bok4lb",
+      "timestamp": "2026-02-10T02:51:14.323Z",
+      "action": "UPDATE",
+      "details": "TECNO CM7 (357702280019720)",
+      "user": "System Administrator"
+    },
+    {
+      "id": "s2fr00cxe",
+      "timestamp": "2026-02-10T02:51:10.997Z",
+      "action": "UPDATE",
+      "details": "TECNO KM7k (357755641518749)",
+      "user": "System Administrator"
+    },
+    {
+      "id": "trw22fspm",
+      "timestamp": "2026-02-10T02:51:00.766Z",
+      "action": "UPDATE",
+      "details": "MEGAPAD SE T1102 (563178930442847)",
+      "user": "System Administrator"
+    },
+    {
+      "id": "efjomddl3",
+      "timestamp": "2026-02-10T02:47:07.591Z",
+      "action": "UPDATE",
+      "details": "MEGAPAD SE T1102 (563178930442847)",
+      "user": "System Administrator"
+    },
+    {
+      "id": "bjha2hjfd",
+      "timestamp": "2026-02-10T02:46:27.724Z",
+      "action": "UPDATE",
+      "details": "MEGAPAD SE T1102 (563178930442847)",
+      "user": "System Administrator"
+    },
+    {
+      "id": "gxbvoes5o",
+      "timestamp": "2026-02-10T02:45:51.316Z",
+      "action": "UPDATE",
+      "details": "MEGAPAD SE T1102 (563178930442847)",
+      "user": "System Administrator"
+    },
+    {
+      "id": "3b64xa3rz",
+      "timestamp": "2026-02-10T02:44:50.709Z",
+      "action": "REGISTER",
+      "details": "Megapad Pro T1201 (520937820015634)",
+      "user": "System Administrator"
+    },
+    {
+      "id": "ys0rzug5j",
+      "timestamp": "2026-02-10T02:43:20.037Z",
+      "action": "REGISTER",
+      "details": "MEGAPAD SE T1102 (563178930442847)",
+      "user": "System Administrator"
+    },
+    {
+      "id": "rgp99t17q",
+      "timestamp": "2026-02-04T06:36:00.023Z",
+      "action": "UPDATE",
+      "details": "TECNO CM7 (357702280019720)",
+      "user": "System Administrator"
+    },
+    {
+      "id": "b2ogogs2n",
+      "timestamp": "2026-02-04T06:35:43.243Z",
+      "action": "REGISTER",
+      "details": "TECNO CM7 (357702280019720)",
+      "user": "System Administrator"
+    },
+    {
+      "id": "9kklu86q8",
+      "timestamp": "2026-02-04T06:35:04.019Z",
+      "action": "DELETE",
+      "details": "TECNO CM7 removed from database",
+      "user": "System Administrator"
+    },
+    {
+      "id": "x8lap86ad",
+      "timestamp": "2026-02-04T06:18:34.700Z",
+      "action": "UPDATE",
+      "details": "TECNO CM7 (357702280019720)",
+      "user": "Admin"
+    },
+    {
+      "id": "thv9emauq",
+      "timestamp": "2026-02-04T06:09:26.708Z",
+      "action": "UPDATE",
+      "details": "TECNO CM7 (357702280019720)",
+      "user": "Admin"
+    },
+    {
+      "id": "vcald2p4a",
+      "timestamp": "2026-02-04T06:05:23.700Z",
+      "action": "UPDATE",
+      "details": "TECNO CM7 (357702280019720)",
+      "user": "Admin"
+    },
+    {
+      "id": "255fllxuv",
+      "timestamp": "2026-02-04T06:05:08.248Z",
+      "action": "UPDATE",
+      "details": "TECNO CM7 (357702280019720)",
+      "user": "Admin"
+    },
+    {
+      "id": "mal6c2cxe",
+      "timestamp": "2026-02-04T06:05:00.019Z",
+      "action": "UPDATE",
+      "details": "TECNO CM7 (357702280019720)",
+      "user": "Admin"
+    },
+    {
+      "id": "r0khspw3w",
+      "timestamp": "2026-02-04T06:04:26.151Z",
+      "action": "REGISTER",
+      "details": "TECNO CM7 (357702280019720)",
+      "user": "Admin"
+    },
+    {
+      "id": "lo4s10l3a",
+      "timestamp": "2026-02-04T06:01:04.801Z",
+      "action": "DELETE",
+      "details": "TECNO LH7n removed from database",
+      "user": "Admin"
+    },
+    {
+      "id": "rwn990vbt",
+      "timestamp": "2026-02-04T06:01:02.350Z",
+      "action": "DELETE",
+      "details": "TECNO LH7n removed from database",
+      "user": "Admin"
+    },
+    {
+      "id": "cnbl3vc1m",
+      "timestamp": "2026-02-04T06:00:54.555Z",
+      "action": "REGISTER",
+      "details": "TECNO LH7n (354529614004927)",
+      "user": "Admin"
+    },
+    {
+      "id": "ntzy0v9kd",
+      "timestamp": "2026-02-04T06:00:54.517Z",
+      "action": "REGISTER",
+      "details": "TECNO LH7n (357702280019720)",
+      "user": "Admin"
+    },
+    {
+      "id": "odl4h86nw",
+      "timestamp": "2026-02-04T06:00:20.565Z",
+      "action": "DELETE",
+      "details": "Google Pixel 8 Pro removed from database",
+      "user": "Admin"
+    },
+    {
+      "id": "r2z6vrw6u",
+      "timestamp": "2026-02-04T06:00:18.241Z",
+      "action": "DELETE",
+      "details": "Apple iPhone 15 Pro removed from database",
+      "user": "Admin"
+    },
+    {
+      "id": "5onlyeywo",
+      "timestamp": "2026-02-04T06:00:15.877Z",
+      "action": "DELETE",
+      "details": "tecn ccm7 removed from database",
+      "user": "Admin"
+    },
+    {
+      "id": "gsulzkblo",
+      "timestamp": "2026-02-04T05:57:26.282Z",
+      "action": "UPDATE",
+      "details": "TECNO KM7k (357755641518749)",
+      "user": "Admin"
+    },
+    {
+      "id": "n9ujrhjpx",
+      "timestamp": "2026-02-04T05:57:06.001Z",
+      "action": "UPDATE",
+      "details": "TECNO KM7k (357755641518749)",
+      "user": "Admin"
+    },
+    {
+      "id": "vndbg5pxm",
+      "timestamp": "2026-02-04T05:56:20.858Z",
+      "action": "REGISTER",
+      "details": "TECNO KM7k (354529614004927)",
+      "user": "Admin"
+    },
+    {
+      "id": "q6ygo4mhz",
+      "timestamp": "2026-02-04T05:55:35.225Z",
+      "action": "REGISTER",
+      "details": "tecn ccm7 (354529614004927)",
+      "user": "Admin"
+    },
+    {
+      "id": "ywzvptf9i",
+      "timestamp": "2026-02-04T05:55:20.839Z",
+      "action": "DELETE",
+      "details": "pova 7 removed from database",
+      "user": "Admin"
+    },
+    {
+      "id": "tpjq9dxv5",
+      "timestamp": "2026-02-04T05:55:18.542Z",
+      "action": "DELETE",
+      "details": "yes oka removed from database",
+      "user": "Admin"
+    },
+    {
+      "id": "5srqe859y",
+      "timestamp": "2026-02-04T05:55:12.583Z",
+      "action": "DELETE",
+      "details": "tecno yea removed from database",
+      "user": "Admin"
+    },
+    {
+      "id": "y22k322hj",
+      "timestamp": "2026-02-04T05:53:25.000Z",
+      "action": "UPDATE",
+      "details": "pova 7 (354529614004927)",
+      "user": "Admin"
+    },
+    {
+      "id": "n9vw5ooah",
+      "timestamp": "2026-02-04T05:47:57.732Z",
+      "action": "UPDATE",
+      "details": "pova 7 (354529614004927)",
+      "user": "Admin"
+    },
+    {
+      "id": "z3jzodxr7",
+      "timestamp": "2026-02-04T05:46:16.086Z",
+      "action": "UPDATE",
+      "details": "pova 7 (354529614004927)",
+      "user": "Admin"
+    },
+    {
+      "id": "0oecgoc9y",
+      "timestamp": "2026-02-04T05:43:25.314Z",
+      "action": "UPDATE",
+      "details": "yes oka (357702280019720)",
+      "user": "Admin"
+    },
+    {
+      "id": "t3lgxqxsu",
+      "timestamp": "2026-02-04T05:42:24.927Z",
+      "action": "UPDATE",
+      "details": "pova 7 (354529614004927)",
+      "user": "Admin"
+    },
+    {
+      "id": "aeyrobjnc",
+      "timestamp": "2026-02-04T05:40:43.843Z",
+      "action": "UPDATE",
+      "details": "yes oka (357702280019720)",
+      "user": "Admin"
+    },
+    {
+      "id": "bvegz0yrj",
+      "timestamp": "2026-02-04T05:36:29.997Z",
+      "action": "UPDATE",
+      "details": "pova 7 (354529614004927)",
+      "user": "Admin"
+    },
+    {
+      "id": "rvg0hd0w0",
+      "timestamp": "2026-02-04T05:02:02.554Z",
+      "action": "REGISTER",
+      "details": "pova 7 (354529614004927)",
+      "user": "Admin"
+    },
+    {
+      "id": "vdrllb9ue",
+      "timestamp": "2026-02-04T05:01:30.670Z",
+      "action": "REGISTER",
+      "details": "yes oka (357702280019720)",
+      "user": "Admin"
+    },
+    {
+      "id": "0r094iqed",
+      "timestamp": "2026-02-04T05:01:15.549Z",
+      "action": "REGISTER",
+      "details": "tecno yea (6973553370415)",
+      "user": "Admin"
+    },
+    {
+      "id": "msx0wxlaq",
+      "timestamp": "2026-02-04T05:01:02.796Z",
+      "action": "DELETE",
+      "details": "TECNO` CM7 removed from database",
+      "user": "Admin"
+    },
+    {
+      "id": "uxv4s7806",
+      "timestamp": "2026-02-04T05:01:00.893Z",
+      "action": "DELETE",
+      "details": "TECNO CAMON removed from database",
+      "user": "Admin"
+    },
+    {
+      "id": "j73lyua5x",
+      "timestamp": "2026-02-04T04:58:10.588Z",
+      "action": "UPDATE",
+      "details": "TECNO CAMON (354529614004927)",
+      "user": "Admin"
+    },
+    {
+      "id": "oxs766ww5",
+      "timestamp": "2026-02-04T04:58:02.838Z",
+      "action": "UPDATE",
+      "details": "TECNO CAMON (354529614004927)",
+      "user": "Admin"
+    },
+    {
+      "id": "z321uv0gt",
+      "timestamp": "2026-02-04T04:49:15.394Z",
+      "action": "REGISTER",
+      "details": "TECNO` CM7 (6973553370415)",
+      "user": "Admin"
+    },
+    {
+      "id": "n4bp4vakv",
+      "timestamp": "2026-02-04T04:48:46.647Z",
+      "action": "REGISTER",
+      "details": "TECNO CAMON (354529614004927)",
+      "user": "Admin"
+    },
+    {
+      "id": "wzsqpyuih",
+      "timestamp": "2026-02-04T04:47:17.658Z",
+      "action": "UPDATE",
+      "details": "Apple iPhone 15 Pro (358123456789012)",
+      "user": "Admin"
+    },
+    {
+      "id": "b8jo03lt2",
+      "timestamp": "2026-02-04T04:47:12.401Z",
+      "action": "UPDATE",
+      "details": "Apple iPhone 15 Pro (358123456789012)",
+      "user": "Admin"
+    },
+    {
+      "id": "4ibcwwobv",
+      "timestamp": "2026-02-04T04:47:00.770Z",
+      "action": "UPDATE",
+      "details": "Apple iPhone 15 Pro (358123456789012)",
+      "user": "Admin"
+    },
+    {
+      "id": "eb3rhcrw7",
+      "timestamp": "2026-02-04T04:38:31.739Z",
+      "action": "UPDATE",
+      "details": "Apple iPhone 15 Pro (358123456789012)",
+      "user": "Admin"
+    },
+    {
+      "id": "eqxteg0w5",
+      "timestamp": "2026-02-04T04:38:23.951Z",
+      "action": "UPDATE",
+      "details": "Apple iPhone 15 Pro (358123456789012)",
+      "user": "Admin"
+    },
+    {
+      "id": "laytr11ss",
+      "timestamp": "2026-02-04T04:25:08.991Z",
+      "action": "UPDATE",
+      "details": "Google Pixel 8 Pro (360123456789012)",
+      "user": "Admin"
+    },
+    {
+      "id": "zf3as66wk",
+      "timestamp": "2026-02-04T04:24:59.804Z",
+      "action": "UPDATE",
+      "details": "Google Pixel 8 Pro (360123456789012)",
+      "user": "Admin"
+    },
+    {
+      "id": "4p9uyv24t",
+      "timestamp": "2026-02-04T04:23:09.869Z",
+      "action": "UPDATE",
+      "details": "Apple iPhone 15 Pro (358123456789012)",
+      "user": "Admin"
+    },
+    {
+      "id": "g4y4m3xn8",
+      "timestamp": "2026-02-04T04:23:03.187Z",
+      "action": "UPDATE",
+      "details": "Apple iPhone 15 Pro (358123456789012)",
+      "user": "Admin"
+    },
+    {
+      "id": "6vfed4osj",
+      "timestamp": "2026-02-04T04:20:36.033Z",
+      "action": "UPDATE",
+      "details": "Apple iPhone 15 Pro (358123456789012)",
+      "user": "Admin"
+    },
+    {
+      "id": "fkda55r5w",
+      "timestamp": "2026-02-04T04:20:28.164Z",
+      "action": "UPDATE",
+      "details": "Apple iPhone 15 Pro (358123456789012)",
+      "user": "Admin"
+    },
+    {
+      "id": "i5mxek3b9",
+      "timestamp": "2026-02-04T04:18:10.630Z",
+      "action": "UPDATE",
+      "details": "Apple iPhone 15 Pro (358123456789012)",
+      "user": "Admin"
+    },
+    {
+      "id": "hv1purf5d",
+      "timestamp": "2026-02-04T04:18:03.563Z",
+      "action": "UPDATE",
+      "details": "Apple iPhone 15 Pro (358123456789012)",
+      "user": "Admin"
+    },
+    {
+      "id": "g0jyl9odx",
+      "timestamp": "2026-02-04T04:11:48.835Z",
+      "action": "UPDATE",
+      "details": "Apple iPhone 15 Pro (358123456789012)",
+      "user": "Admin"
+    },
+    {
+      "id": "klumgyali",
+      "timestamp": "2026-02-04T04:11:38.174Z",
+      "action": "UPDATE",
+      "details": "Apple iPhone 15 Pro (358123456789012)",
+      "user": "Admin"
+    },
+    {
+      "id": "jp7yo42nk",
+      "timestamp": "2026-02-04T04:06:39.101Z",
+      "action": "UPDATE",
+      "details": "Apple iPhone 15 Pro (358123456789012)",
+      "user": "Admin"
+    },
+    {
+      "id": "6nix73fjy",
+      "timestamp": "2026-02-04T04:06:27.831Z",
+      "action": "UPDATE",
+      "details": "Apple iPhone 15 Pro (358123456789012)",
+      "user": "Admin"
+    },
+    {
+      "id": "lskq37tj4",
+      "timestamp": "2026-02-04T04:05:50.795Z",
+      "action": "UPDATE",
+      "details": "Apple iPhone 15 Pro (358123456789012)",
+      "user": "Admin"
+    },
+    {
+      "id": "s8e2tw3n1",
+      "timestamp": "2026-02-04T04:05:43.418Z",
+      "action": "UPDATE",
+      "details": "Apple iPhone 15 Pro (358123456789012)",
+      "user": "Admin"
+    },
+    {
+      "id": "h5bzs3i9i",
+      "timestamp": "2026-02-04T04:03:07.012Z",
+      "action": "UPDATE",
+      "details": "Apple iPhone 15 Pro (358123456789012)",
+      "user": "Admin"
+    },
+    {
+      "id": "yzukahr1e",
+      "timestamp": "2026-02-04T04:01:52.485Z",
+      "action": "UPDATE",
+      "details": "Apple iPhone 15 Pro (358123456789012)",
+      "user": "Admin"
+    },
+    {
+      "id": "b5jihvea3",
+      "timestamp": "2026-02-04T04:00:14.068Z",
+      "action": "UPDATE",
+      "details": "Apple iPhone 15 Pro (358123456789012)",
+      "user": "Admin"
+    },
+    {
+      "id": "2pcjbknk9",
+      "timestamp": "2026-02-04T03:59:14.753Z",
+      "action": "UPDATE",
+      "details": "Google Pixel 8 Pro (360123456789012)",
+      "user": "Admin"
+    },
+    {
+      "id": "4c853n7hd",
+      "timestamp": "2026-02-04T03:58:46.580Z",
+      "action": "UPDATE",
+      "details": "Google Pixel 8 Pro (360123456789012)",
+      "user": "Admin"
+    },
+    {
+      "id": "o65hn3cl5",
+      "timestamp": "2026-02-04T03:58:03.119Z",
+      "action": "UPDATE",
+      "details": "Google Pixel 8 Pro (360123456789012)",
+      "user": "Admin"
+    },
+    {
+      "id": "lpw03bbnt",
+      "timestamp": "2026-02-04T03:57:47.493Z",
+      "action": "UPDATE",
+      "details": "Google Pixel 8 Pro (360123456789012)",
+      "user": "Admin"
+    },
+    {
+      "id": "pusaf99il",
+      "timestamp": "2026-02-04T03:57:39.594Z",
+      "action": "UPDATE",
+      "details": "Apple iPhone 15 Pro (358123456789012)",
+      "user": "Admin"
+    },
+    {
+      "id": "8s9e3ff5a",
+      "timestamp": "2026-02-04T03:54:05.008Z",
+      "action": "UPDATE",
+      "details": "Google Pixel 8 Pro (360123456789012)",
+      "user": "Admin"
+    },
+    {
+      "id": "lk8yvj5tu",
+      "timestamp": "2026-02-04T03:40:45.719Z",
+      "action": "UPDATE",
+      "details": "Apple iPhone 15 Pro (358123456789012)",
+      "user": "Admin"
+    },
+    {
+      "id": "12e5w2sup",
+      "timestamp": "2026-02-04T03:39:08.275Z",
+      "action": "DELETE",
+      "details": "Samsung Galaxy S24 Ultra removed from database",
+      "user": "Admin"
+    }
+  ]
+}
