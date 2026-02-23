@@ -63,10 +63,10 @@ export const Dashboard: React.FC<DashboardProps> = ({ phones, logs, onDownloadIn
   }, [phones]);
 
   const modelData = useMemo(() => {
-    const distribution = phones.reduce<Record<string, number>>((acc, p) => {
+    const distribution = phones.reduce((acc, p) => {
       acc[p.model] = (acc[p.model] || 0) + 1;
       return acc;
-    }, {});
+    }, {} as Record<string, number>);
 
     return Object.entries(distribution)
       .map(([name, value]) => ({ name, value }))
