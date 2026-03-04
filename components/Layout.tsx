@@ -33,9 +33,22 @@ export const Layout: React.FC<LayoutProps> = ({
   onLogout,
   activeFileName
 }) => {
-  const [isSidebarOpen, setIsSidebarOpen] = React.useState(true);
+  const [isSidebarOpen, setIsSidebarOpen] = React.useState(false);
+  const [isMobile, setIsMobile] = React.useState(false);
   const mode = dbService.getMode();
   const location = useLocation();
+
+  React.useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 1024);
+      if (window.innerWidth < 1024) {
+        setIsSidebarOpen(false);
+      }
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   const menuItems = [
     { id: 'dashboard', path: '/dashboard', label: 'Dashboard', icon: LayoutDashboard },
@@ -77,13 +90,23 @@ export const Layout: React.FC<LayoutProps> = ({
 
   return (
     <div className="flex h-screen overflow-hidden">
+      {/* Mobile Overlay */}
+      {isMobile && isSidebarOpen && (
+        <div 
+          className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 lg:hidden"
+          onClick={() => setIsSidebarOpen(false)}
+        />
+      )}
+
       {/* Sidebar */}
       <aside 
         className={`${
-          isSidebarOpen ? 'w-64' : 'w-20'
-        } bg-slate-900 text-white transition-all duration-300 flex flex-col shadow-2xl relative z-50`}
+          isSidebarOpen ? 'translate-x-0' : '-translate-x-full'
+        } ${
+          isMobile ? 'fixed inset-y-0 left-0 z-50 w-64' : 'relative'
+        } bg-slate-900 text-white transition-all duration-300 flex flex-col shadow-2xl`}
       >
-        <div className="p-6 flex items-center justify-between border-b border-slate-800">
+        <div className="p-4 lg:p-6 flex items-center justify-between border-b border-slate-800">
           {isSidebarOpen && (
             <div className="flex items-center space-x-3 truncate animate-in slide-in-from-left-2 duration-300">
               <div className="bg-blue-600 p-2 rounded-xl shadow-lg shadow-blue-500/20 rotate-3">
@@ -100,11 +123,12 @@ export const Layout: React.FC<LayoutProps> = ({
           </button>
         </div>
 
-        <nav className="flex-1 p-4 space-y-1.5 mt-4">
+        <nav className="flex-1 p-4 space-y-1.5 mt-4 overflow-y-auto">
           {menuItems.map((item) => (
             <NavLink
               key={item.id}
               to={item.path}
+              onClick={() => isMobile && setIsSidebarOpen(false)}
               className={({ isActive }) => `w-full flex items-center p-3.5 rounded-xl transition-all duration-200 group ${
                 isActive ? 'bg-blue-600 text-white shadow-xl shadow-blue-900/40 translate-x-1' : 'text-slate-400 hover:bg-slate-800 hover:text-white'
               }`}
@@ -121,18 +145,28 @@ export const Layout: React.FC<LayoutProps> = ({
       </aside>
 
       {/* Main Content */}
-      <main className="flex-1 overflow-y-auto bg-gray-50/50 flex flex-col">
-        <header className="bg-white/80 backdrop-blur-md border-b sticky top-0 z-40 px-8 py-4 flex justify-between items-center shadow-sm">
-          <h1 className="text-2xl font-black text-slate-900 capitalize flex items-center tracking-tight">
-            {(() => {
-              const match = menuItems.find(mi => mi.path === location.pathname);
-              return match ? match.label : location.pathname.replace(/\//g, ' ').trim() || 'Dashboard';
-            })()}
-          </h1>
+      <main className="flex-1 overflow-y-auto bg-gray-50/50 flex flex-col min-w-0">
+        <header className="bg-white/80 backdrop-blur-md border-b sticky top-0 z-40 px-4 lg:px-8 py-3 lg:py-4 flex justify-between items-center shadow-sm">
+          <div className="flex items-center gap-3">
+            {isMobile && (
+              <button 
+                onClick={() => setIsSidebarOpen(true)}
+                className="p-2 hover:bg-gray-100 rounded-xl transition-colors"
+              >
+                <Menu size={24} />
+              </button>
+            )}
+            <h1 className="text-lg lg:text-2xl font-black text-slate-900 capitalize flex items-center tracking-tight">
+              {(() => {
+                const match = menuItems.find(mi => mi.path === location.pathname);
+                return match ? match.label : location.pathname.replace(/\//g, ' ').trim() || 'Dashboard';
+              })()}
+            </h1>
+          </div>
           
-          <div className="flex items-center space-x-6">
+          <div className="flex items-center space-x-2 lg:space-x-6">
             {getSyncIndicator()}
-            <div className="flex items-center space-x-4 border-l pl-6 border-gray-100">
+            <div className="flex items-center space-x-2 lg:space-x-4 border-l pl-3 lg:pl-6 border-gray-100">
               <div className="text-right hidden sm:block">
                 <p className="text-sm font-black text-slate-900 leading-none">{currentUser?.name || 'Guest User'}</p>
                 <p className="text-[10px] text-slate-400 font-black uppercase tracking-widest mt-1.5">{currentUser?.department || 'Visitor'}</p>
@@ -156,7 +190,7 @@ export const Layout: React.FC<LayoutProps> = ({
             </div>
           </div>
         </header>
-        <div className="p-8 max-w-7xl mx-auto w-full flex-1">
+        <div className="p-4 lg:p-8 max-w-7xl mx-auto w-full flex-1">
           {children}
         </div>
       </main>

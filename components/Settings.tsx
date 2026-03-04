@@ -83,26 +83,26 @@ export const Settings: React.FC<SettingsProps> = ({
   };
 
   return (
-    <div className="max-w-5xl mx-auto space-y-8 animate-in fade-in slide-in-from-bottom-2 duration-500 pb-20">
+    <div className="max-w-5xl mx-auto space-y-6 lg:space-y-8 animate-in fade-in slide-in-from-bottom-2 duration-500 pb-16 lg:pb-20">
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-        <div className="flex items-center space-x-4">
-          <div className="p-4 bg-slate-900 text-white rounded-3xl shadow-xl shadow-slate-200">
-            <SettingsIcon size={28} />
+        <div className="flex items-center space-x-3 lg:space-x-4">
+          <div className="p-3 lg:p-4 bg-slate-900 text-white rounded-2xl lg:rounded-3xl shadow-xl shadow-slate-200">
+            <SettingsIcon size={24} className="lg:w-7 lg:h-7" />
           </div>
           <div>
-            <h2 className="text-3xl font-black text-slate-900 tracking-tight">System Configuration</h2>
-            <p className="text-slate-500 font-medium">Manage database architecture & mirroring protocol</p>
+            <h2 className="text-xl lg:text-3xl font-black text-slate-900 tracking-tight">System Configuration</h2>
+            <p className="text-slate-500 font-medium text-sm">Manage database architecture & mirroring protocol</p>
           </div>
         </div>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-        <div className="lg:col-span-8 space-y-8">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-8">
+        <div className="lg:col-span-8 space-y-6 lg:space-y-8">
           
-          <div className="bg-white rounded-[2.5rem] border border-gray-100 shadow-sm overflow-hidden transition-all hover:shadow-md">
-            <div className="px-10 py-8 border-b border-gray-50 bg-gray-50/30">
+          <div className="bg-white rounded-2xl lg:rounded-[2.5rem] border border-gray-100 shadow-sm overflow-hidden transition-all hover:shadow-md">
+            <div className="p-6 lg:px-10 lg:py-8 border-b border-gray-50 bg-gray-50/30">
               <div className="flex items-center justify-between">
-                <h3 className="font-black text-slate-900 uppercase text-xs tracking-widest flex items-center">
+                <h3 className="font-black text-slate-900 uppercase text-[10px] lg:text-xs tracking-widest flex items-center">
                   <Database size={16} className="mr-2 text-blue-600" />
                   Dual-File Mirroring Engine
                 </h3>
@@ -112,66 +112,66 @@ export const Settings: React.FC<SettingsProps> = ({
               </p>
             </div>
             
-            <div className="p-10">
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 mb-10">
+            <div className="p-6 lg:p-10">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 lg:gap-5 mb-6 lg:mb-10">
                 <button 
                   onClick={() => switchStorage('local_storage')}
-                  className={`p-6 rounded-[2rem] border-2 transition-all flex flex-col items-center text-center space-y-3 ${storageMode === 'local_storage' ? 'border-blue-600 bg-blue-50/50' : 'border-gray-50 hover:border-gray-200 bg-gray-50/30'}`}
+                  className={`p-4 lg:p-6 rounded-2xl lg:rounded-[2rem] border-2 transition-all flex flex-col items-center text-center space-y-2 lg:space-y-3 ${storageMode === 'local_storage' ? 'border-blue-600 bg-blue-50/50' : 'border-gray-50 hover:border-gray-200 bg-gray-50/30'}`}
                 >
-                  <div className={`p-4 rounded-2xl ${storageMode === 'local_storage' ? 'bg-blue-600 text-white shadow-lg shadow-blue-200' : 'bg-white text-gray-400 shadow-sm'}`}>
-                    <Smartphone size={28} />
+                  <div className={`p-3 lg:p-4 rounded-xl lg:rounded-2xl ${storageMode === 'local_storage' ? 'bg-blue-600 text-white shadow-lg shadow-blue-200' : 'bg-white text-gray-400 shadow-sm'}`}>
+                    <Smartphone size={24} className="lg:w-7 lg:h-7" />
                   </div>
-                  <span className={`font-black text-sm tracking-tight ${storageMode === 'local_storage' ? 'text-blue-900' : 'text-gray-500'}`}>Browser Cache</span>
+                  <span className={`font-black text-xs lg:text-sm tracking-tight ${storageMode === 'local_storage' ? 'text-blue-900' : 'text-gray-500'}`}>Browser Cache</span>
                 </button>
 
-                <div className={`p-6 rounded-[2rem] border-2 transition-all flex flex-col items-center text-center space-y-3 relative ${!isSupported ? 'opacity-50 cursor-not-allowed' : ''} ${storageMode === 'file' ? 'border-blue-600 bg-blue-50/50' : 'border-gray-50 bg-gray-50/30'}`}>
-                  <div className={`p-4 rounded-2xl ${storageMode === 'file' ? 'bg-blue-600 text-white shadow-lg shadow-blue-200' : 'bg-white text-gray-400 shadow-sm'}`}>
-                    <FolderSync size={28} />
+                <div className={`p-4 lg:p-6 rounded-2xl lg:rounded-[2rem] border-2 transition-all flex flex-col items-center text-center space-y-2 lg:space-y-3 relative ${!isSupported ? 'opacity-50 cursor-not-allowed' : ''} ${storageMode === 'file' ? 'border-blue-600 bg-blue-50/50' : 'border-gray-50 bg-gray-50/30'}`}>
+                  <div className={`p-3 lg:p-4 rounded-xl lg:rounded-2xl ${storageMode === 'file' ? 'bg-blue-600 text-white shadow-lg shadow-blue-200' : 'bg-white text-gray-400 shadow-sm'}`}>
+                    <FolderSync size={24} className="lg:w-7 lg:h-7" />
                   </div>
-                  <span className={`font-black text-sm tracking-tight ${storageMode === 'file' ? 'text-blue-900' : 'text-gray-500'}`}>Mirrored Folder</span>
+                  <span className={`font-black text-xs lg:text-sm tracking-tight ${storageMode === 'file' ? 'text-blue-900' : 'text-gray-500'}`}>Mirrored Folder</span>
                   {storageMode === 'file' && <div className="absolute top-2 right-2 w-3 h-3 bg-green-500 rounded-full border-2 border-white animate-pulse"></div>}
                 </div>
 
-                <div className="p-6 rounded-[2rem] border-2 border-dashed border-gray-100 bg-gray-50/20 opacity-50 flex flex-col items-center text-center space-y-3 grayscale">
-                  <div className="p-4 rounded-2xl bg-white text-gray-300">
-                    <Cloud size={28} />
+                <div className="p-4 lg:p-6 rounded-2xl lg:rounded-[2rem] border-2 border-dashed border-gray-100 bg-gray-50/20 opacity-50 flex flex-col items-center text-center space-y-2 lg:space-y-3 grayscale">
+                  <div className="p-3 lg:p-4 rounded-xl lg:rounded-2xl bg-white text-gray-300">
+                    <Cloud size={24} className="lg:w-7 lg:h-7" />
                   </div>
-                  <span className="font-black text-sm tracking-tight text-gray-400">Cloud Sync</span>
+                  <span className="font-black text-xs lg:text-sm tracking-tight text-gray-400">Cloud Sync</span>
                 </div>
               </div>
 
               {!isSupported ? (
-                <div className="p-8 bg-amber-50 border border-amber-200 rounded-[2rem] text-amber-900">
-                  <div className="flex items-start space-x-4">
-                    <div className="p-3 bg-white rounded-2xl text-amber-500 shadow-sm">
-                      <AlertTriangle size={24} />
+                <div className="p-6 lg:p-8 bg-amber-50 border border-amber-200 rounded-2xl lg:rounded-[2rem] text-amber-900">
+                  <div className="flex items-start space-x-3 lg:space-x-4">
+                    <div className="p-2 lg:p-3 bg-white rounded-xl lg:rounded-2xl text-amber-500 shadow-sm">
+                      <AlertTriangle size={20} className="lg:w-6 lg:h-6" />
                     </div>
                     <div>
-                      <p className="font-black text-lg">Directory Access Not Supported</p>
-                      <p className="text-sm mt-1 leading-relaxed opacity-80">
+                      <p className="font-black text-base lg:text-lg">Directory Access Not Supported</p>
+                      <p className="text-xs lg:text-sm mt-1 leading-relaxed opacity-80">
                         Mirrored folder mode requires the <b>FileSystemDirectoryHandle</b> API.
                       </p>
                     </div>
                   </div>
                 </div>
               ) : storageMode === 'file' ? (
-                <div className="p-8 bg-slate-900 rounded-[2rem] text-white animate-in zoom-in-95 duration-300 relative overflow-hidden group">
+                <div className="p-6 lg:p-8 bg-slate-900 rounded-2xl lg:rounded-[2rem] text-white animate-in zoom-in-95 duration-300 relative overflow-hidden group">
                   <div className="absolute -right-10 -bottom-10 opacity-10 group-hover:scale-110 transition-transform duration-700">
-                    <ShieldCheck size={180} />
+                    <ShieldCheck size={140} className="lg:w-[180px]" />
                   </div>
                   
                   <div className="relative z-10">
-                    <div className="flex items-center justify-between mb-8">
-                      <div className="flex items-center space-x-4">
-                        <div className="p-3 bg-white/10 rounded-2xl backdrop-blur-md">
-                          <HardDrive size={32} className="text-blue-400" />
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-6 lg:mb-8 gap-4">
+                      <div className="flex items-center space-x-3 lg:space-x-4">
+                        <div className="p-2 lg:p-3 bg-white/10 rounded-xl lg:rounded-2xl backdrop-blur-md">
+                          <HardDrive size={24} className="lg:w-8 lg:h-8 text-blue-400" />
                         </div>
                         <div>
-                          <p className="font-black text-xl">Redundant Storage Active</p>
-                          <p className="text-xs font-bold text-blue-300 uppercase tracking-widest mt-1">Dir: {folderName || 'System Folder'}</p>
+                          <p className="font-black text-lg lg:text-xl">Redundant Storage Active</p>
+                          <p className="text-[10px] lg:text-xs font-bold text-blue-300 uppercase tracking-widest mt-1">Dir: {folderName || 'System Folder'}</p>
                         </div>
                       </div>
-                      <div className="px-4 py-2 bg-green-500/20 text-green-400 rounded-full text-[10px] font-black uppercase tracking-widest border border-green-500/20 flex items-center">
+                      <div className="px-3 lg:px-4 py-1.5 lg:py-2 bg-green-500/20 text-green-400 rounded-full text-[10px] font-black uppercase tracking-widest border border-green-500/20 flex items-center self-start sm:self-center">
                         <div className="w-1.5 h-1.5 bg-green-400 rounded-full mr-2 animate-pulse"></div>
                         Safe Mirroring
                       </div>
