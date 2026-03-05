@@ -249,29 +249,29 @@ const App: React.FC = () => {
 
   if (needsFileVerify) {
     return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center p-6">
-        <div className="max-w-md w-full bg-white rounded-2xl p-8 shadow-xl border border-gray-100 animate-in fade-in zoom-in-95 duration-300">
-          <div className="w-16 h-16 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
+      <div className="min-h-screen bg-gray-50 dark:bg-slate-900 flex items-center justify-center p-6">
+        <div className="max-w-md w-full bg-white dark:bg-slate-800 rounded-2xl p-8 shadow-xl border border-gray-100 dark:border-slate-700 animate-in fade-in zoom-in-95 duration-300">
+          <div className="w-16 h-16 bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 rounded-2xl flex items-center justify-center mx-auto mb-6">
             <FolderCheck size={32} />
           </div>
           <div className="text-center mb-8">
-            <h2 className="text-2xl font-bold text-gray-900 mb-2">Connect Storage</h2>
-            <p className="text-gray-500 text-sm leading-relaxed">
-              Please authorize access to <b>{activeFileName || 'your data folder'}</b> to sync the database.
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">Connect Storage</h2>
+            <p className="text-gray-500 dark:text-slate-400 text-sm leading-relaxed">
+              Please authorize access to <b className="text-gray-900 dark:text-white">{activeFileName || 'your data folder'}</b> to sync the database.
             </p>
           </div>
           
           <div className="space-y-3">
             <button 
               onClick={handleVerifyFile}
-              className="w-full py-3.5 bg-gray-900 text-white font-semibold rounded-xl hover:bg-black transition-all flex items-center justify-center gap-2 active:scale-[0.98] shadow-lg shadow-gray-900/20"
+              className="w-full py-3.5 bg-gray-900 dark:bg-slate-700 text-white font-semibold rounded-xl hover:bg-black dark:hover:bg-slate-600 transition-all flex items-center justify-center gap-2 active:scale-[0.98] shadow-lg shadow-gray-900/20"
             >
               <RefreshCw size={18} />
               Authorize Access
             </button>
             <button 
               onClick={() => { dbService.setMode('local_storage'); setNeedsFileVerify(false); fetchData(); }}
-              className="w-full py-3.5 bg-white text-gray-500 font-semibold rounded-xl border border-gray-200 hover:bg-gray-50 hover:text-gray-700 transition-all active:scale-[0.98]"
+              className="w-full py-3.5 bg-white dark:bg-slate-700 text-gray-500 dark:text-slate-300 font-semibold rounded-xl border border-gray-200 dark:border-slate-600 hover:bg-gray-50 dark:hover:bg-slate-600 transition-all active:scale-[0.98]"
             >
               Use Local Cache
             </button>
@@ -291,12 +291,12 @@ const App: React.FC = () => {
       {isLoading ? (
         <div className="flex flex-col items-center justify-center min-h-[60vh] space-y-6">
           <div className="relative">
-            <div className="w-16 h-16 border-4 border-gray-100 border-t-blue-600 rounded-full animate-spin"></div>
+            <div className="w-16 h-16 border-4 border-gray-100 dark:border-slate-700 border-t-blue-600 rounded-full animate-spin"></div>
             <div className="absolute inset-0 flex items-center justify-center">
               <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
             </div>
           </div>
-          <p className="text-gray-400 font-medium text-sm tracking-wide animate-pulse">Loading System...</p>
+          <p className="text-gray-400 dark:text-slate-500 font-medium text-sm tracking-wide animate-pulse">Loading System...</p>
         </div>
       ) : (
         <Routes>
