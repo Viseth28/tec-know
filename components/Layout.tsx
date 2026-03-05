@@ -106,7 +106,7 @@ export const Layout: React.FC<LayoutProps> = ({
         className={`
           ${isMobile 
             ? (isSidebarOpen ? 'translate-x-0 fixed inset-y-0 left-0 z-50 w-64' : '-translate-x-full fixed inset-y-0 left-0 z-50 w-64')
-            : 'relative w-64'}
+            : (isSidebarOpen ? 'relative w-64' : 'w-0 -translate-x-full overflow-hidden')}
           bg-slate-900 text-white transition-all duration-300 flex flex-col shadow-2xl
         `}
       >
@@ -119,22 +119,12 @@ export const Layout: React.FC<LayoutProps> = ({
               <span className="font-black text-xl tracking-tight">TEC-Know</span>
             </div>
           )}
-          {isMobile && (
-            <button 
-              onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-              className="p-2.5 hover:bg-slate-800 rounded-xl transition-colors"
-            >
-              {isSidebarOpen ? <X size={20} /> : <Menu size={20} />}
-            </button>
-          )}
-          {!isMobile && (
-            <button 
-              onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-              className="p-2.5 hover:bg-slate-800 rounded-xl transition-colors"
-            >
-              {isSidebarOpen ? <X size={20} /> : <Menu size={20} />}
-            </button>
-          )}
+          <button 
+            onClick={() => setIsSidebarOpen(!isSidebarOpen)}
+            className="p-2.5 hover:bg-slate-800 rounded-xl transition-colors"
+          >
+            {isSidebarOpen ? <X size={20} /> : <Menu size={20} />}
+          </button>
         </div>
 
         {isSidebarOpen && (
