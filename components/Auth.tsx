@@ -52,15 +52,15 @@ export const Auth: React.FC<AuthProps> = ({ onLogin }) => {
               <div className="w-16 h-16 bg-slate-900 rounded-2xl flex items-center justify-center text-white shadow-xl shadow-slate-900/20 mb-4 rotate-3">
                 <Smartphone size={32} />
               </div>
-              <h1 className="text-3xl font-black text-slate-900 tracking-tight">TEC-Know</h1>
+              <h1 className="text-3xl font-black text-slate-900 dark:text-white tracking-tight">TEC-Know</h1>
               <div className="flex items-center mt-1 space-x-2">
-                <ShieldCheck size={14} className="text-blue-600" />
+                <ShieldCheck size={14} className="text-blue-600 dark:text-blue-400" />
                 <p className="text-slate-400 font-black text-[10px] uppercase tracking-widest">Internal Secure Portal</p>
               </div>
             </div>
 
-            <div className="bg-blue-50 p-4 rounded-2xl mb-8 border border-blue-100">
-               <p className="text-[11px] text-blue-700 font-bold text-center">
+            <div className="bg-blue-50 dark:bg-blue-900/30 p-4 rounded-2xl mb-8 border border-blue-100 dark:border-blue-800/50">
+               <p className="text-[11px] text-blue-700 dark:text-blue-300 font-bold text-center">
                  This is a restricted company terminal. <br/>Enter master credentials to gain access.
                </p>
             </div>
@@ -73,7 +73,7 @@ export const Auth: React.FC<AuthProps> = ({ onLogin }) => {
                   <input
                     required
                     type="text"
-                    className="w-full pl-12 pr-4 py-3.5 bg-slate-50 border border-slate-100 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none transition-all font-medium text-slate-900"
+                    className="w-full pl-12 pr-4 py-3.5 bg-slate-50 dark:bg-slate-700 border border-slate-100 dark:border-slate-600 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none transition-all font-medium text-slate-900 dark:text-white dark:placeholder:text-slate-400"
                     placeholder="Enter Admin"
                     value={formData.username}
                     onChange={e => setFormData({...formData, username: e.target.value})}
@@ -88,7 +88,7 @@ export const Auth: React.FC<AuthProps> = ({ onLogin }) => {
                   <input
                     required
                     type="password"
-                    className="w-full pl-12 pr-4 py-3.5 bg-slate-50 border border-slate-100 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none transition-all font-medium text-slate-900"
+                    className="w-full pl-12 pr-4 py-3.5 bg-slate-50 dark:bg-slate-700 border border-slate-100 dark:border-slate-600 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none transition-all font-medium text-slate-900 dark:text-white dark:placeholder:text-slate-400"
                     placeholder="Enter 1234"
                     value={formData.password}
                     onChange={e => setFormData({...formData, password: e.target.value})}
@@ -97,7 +97,7 @@ export const Auth: React.FC<AuthProps> = ({ onLogin }) => {
               </div>
 
               {error && (
-                <div className="flex items-center space-x-2 text-red-600 bg-red-50 p-4 rounded-xl text-sm font-bold border border-red-100 animate-in shake duration-300">
+                <div className="flex items-center space-x-2 text-red-600 dark:text-red-400 bg-red-50 dark:bg-red-900/30 p-4 rounded-xl text-sm font-bold border border-red-100 dark:border-red-800/50 animate-in shake duration-300">
                   <AlertCircle size={18} className="shrink-0" />
                   <p>{error}</p>
                 </div>

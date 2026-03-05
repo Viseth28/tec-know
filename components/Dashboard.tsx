@@ -190,13 +190,13 @@ export const Dashboard: React.FC<DashboardProps> = ({ phones, logs, onDownloadIn
           </div>
         </div>
         
-        <div className="lg:col-span-4 bg-white rounded-2xl lg:rounded-[2rem] p-4 lg:p-8 border border-gray-100 flex items-center justify-between shadow-sm">
+        <div className="lg:col-span-4 bg-white dark:bg-slate-800 rounded-2xl lg:rounded-[2rem] p-4 lg:p-8 border border-gray-100 dark:border-slate-700 flex items-center justify-between shadow-sm">
           <div>
             <p className="text-slate-400 text-[10px] font-black uppercase tracking-widest mb-1">Operational Health</p>
-            <h4 className="text-3xl lg:text-4xl font-black text-slate-900">{stats.health}%</h4>
-            <p className="text-[10px] text-green-600 font-black mt-1 uppercase tracking-tighter">Ready for Deployment</p>
+            <h4 className="text-3xl lg:text-4xl font-black text-slate-900 dark:text-white">{stats.health}%</h4>
+            <p className="text-[10px] text-green-600 dark:text-green-400 font-black mt-1 uppercase tracking-tighter">Ready for Deployment</p>
           </div>
-          <div className="w-12 lg:w-16 h-12 lg:h-16 bg-green-50 rounded-xl lg:rounded-2xl flex items-center justify-center text-green-600">
+          <div className="w-12 lg:w-16 h-12 lg:h-16 bg-green-50 dark:bg-green-900/30 rounded-xl lg:rounded-2xl flex items-center justify-center text-green-600 dark:text-green-400">
             <TrendingUp size={24} className="lg:w-8 lg:h-8" />
           </div>
         </div>
@@ -205,17 +205,17 @@ export const Dashboard: React.FC<DashboardProps> = ({ phones, logs, onDownloadIn
       {/* Stats Layer */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-6">
         {[
-          { label: 'Total Inventory', value: stats.total, icon: Smartphone, color: 'text-blue-600', bg: 'bg-blue-50' },
-          { label: 'Active Handover', value: stats.onBorrow, icon: ArrowUpRight, color: 'text-orange-600', bg: 'bg-orange-50' },
-          { label: 'Available Units', value: stats.available, icon: CheckCircle2, color: 'text-green-600', bg: 'bg-green-50' },
-          { label: 'Asset Alert', value: stats.broken, icon: AlertCircle, color: 'text-red-600', bg: 'bg-red-50' },
+          { label: 'Total Inventory', value: stats.total, icon: Smartphone, color: 'text-blue-600 dark:text-blue-400', bg: 'bg-blue-50 dark:bg-blue-900/30' },
+          { label: 'Active Handover', value: stats.onBorrow, icon: ArrowUpRight, color: 'text-orange-600 dark:text-orange-400', bg: 'bg-orange-50 dark:bg-orange-900/30' },
+          { label: 'Available Units', value: stats.available, icon: CheckCircle2, color: 'text-green-600 dark:text-green-400', bg: 'bg-green-50 dark:bg-green-900/30' },
+          { label: 'Asset Alert', value: stats.broken, icon: AlertCircle, color: 'text-red-600 dark:text-red-400', bg: 'bg-red-50 dark:bg-red-900/30' },
         ].map((stat, i) => (
-          <div key={i} className="bg-white p-4 lg:p-8 rounded-2xl lg:rounded-[2rem] shadow-sm border border-gray-100 transition-all hover:shadow-md hover:-translate-y-1">
+          <div key={i} className="bg-white dark:bg-slate-800 p-4 lg:p-8 rounded-2xl lg:rounded-[2rem] shadow-sm border border-gray-100 dark:border-slate-700 transition-all hover:shadow-md hover:-translate-y-1">
             <div className={`w-10 lg:w-12 h-10 lg:h-12 rounded-xl lg:rounded-2xl ${stat.bg} ${stat.color} flex items-center justify-center mb-4 lg:mb-6`}>
               <stat.icon size={20} className="lg:w-6 lg:h-6" />
             </div>
             <p className="text-[10px] text-slate-400 font-black uppercase tracking-widest mb-1">{stat.label}</p>
-            <h3 className="text-2xl lg:text-3xl font-black text-slate-900 tracking-tight">{stat.value}</h3>
+            <h3 className="text-2xl lg:text-3xl font-black text-slate-900 dark:text-white tracking-tight">{stat.value}</h3>
           </div>
         ))}
       </div>
@@ -223,15 +223,15 @@ export const Dashboard: React.FC<DashboardProps> = ({ phones, logs, onDownloadIn
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-8">
         {/* Charts Layer */}
         <div className="lg:col-span-8 space-y-4 lg:space-y-8">
-          <div className="bg-white p-6 lg:p-10 rounded-2xl lg:rounded-[2.5rem] shadow-sm border border-gray-100">
-            <h3 className="font-black text-slate-900 uppercase text-[10px] tracking-widest flex items-center mb-6 lg:mb-10">
-              <TrendingUp className="mr-3 text-blue-600" size={16} />
+          <div className="bg-white dark:bg-slate-800 p-6 lg:p-10 rounded-2xl lg:rounded-[2.5rem] shadow-sm border border-gray-100 dark:border-slate-700">
+            <h3 className="font-black text-slate-900 dark:text-white uppercase text-[10px] tracking-widest flex items-center mb-6 lg:mb-10">
+              <TrendingUp className="mr-3 text-blue-600 dark:text-blue-400" size={16} />
               Model Distribution
             </h3>
             <div className="h-56 lg:h-72">
               <ResponsiveContainer width="100%" height="100%">
                 <BarChart data={modelData}>
-                  <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#f1f5f9" />
+                  <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#f1f5f9" className="dark:stroke-slate-700" />
                   <XAxis dataKey="name" axisLine={false} tickLine={false} tick={{fontSize: 10, fontWeight: 'bold', fill: '#94a3b8'}} dy={10} interval={0} />
                   <YAxis axisLine={false} tickLine={false} tick={{fontSize: 11, fontWeight: 'bold', fill: '#94a3b8'}} />
                   <Tooltip 
@@ -245,13 +245,13 @@ export const Dashboard: React.FC<DashboardProps> = ({ phones, logs, onDownloadIn
           </div>
           
           {/* Integrity Table */}
-          <div className="bg-white rounded-2xl lg:rounded-[2.5rem] shadow-sm border border-gray-100 overflow-hidden">
-            <div className="p-4 lg:p-8 border-b border-gray-50 flex items-center justify-between">
-              <h3 className="font-black text-slate-900 uppercase text-[10px] tracking-widest">Active Device Handover</h3>
+          <div className="bg-white dark:bg-slate-800 rounded-2xl lg:rounded-[2.5rem] shadow-sm border border-gray-100 dark:border-slate-700 overflow-hidden">
+            <div className="p-4 lg:p-8 border-b border-gray-50 dark:border-slate-700 flex items-center justify-between">
+              <h3 className="font-black text-slate-900 dark:text-white uppercase text-[10px] tracking-widest">Active Device Handover</h3>
             </div>
             <div className="overflow-x-auto">
               <table className="w-full text-left">
-                <thead className="bg-slate-50/50 text-[9px] text-slate-400 uppercase font-black tracking-widest">
+                <thead className="bg-slate-50/50 dark:bg-slate-700/50 text-[9px] text-slate-400 uppercase font-black tracking-widest">
                   <tr>
                     <th className="px-4 lg:px-8 py-3 lg:py-4">Hardware Item</th>
                     <th className="px-4 lg:px-8 py-3 lg:py-4">Personnel</th>
@@ -259,12 +259,12 @@ export const Dashboard: React.FC<DashboardProps> = ({ phones, logs, onDownloadIn
                     <th className="px-4 lg:px-8 py-3 lg:py-4 text-right">Action</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-slate-50 text-xs font-bold">
+                <tbody className="divide-y divide-slate-50 dark:divide-slate-700 text-xs font-bold">
                   {phones.filter(p => p.status === DeviceStatus.ON_BORROW).slice(0, 5).map(p => (
-                    <tr key={p.id} className="hover:bg-slate-50/50 transition-colors">
-                      <td className="px-4 lg:px-8 py-3 lg:py-4 text-slate-900">{p.brand} {p.model}</td>
+                    <tr key={p.id} className="hover:bg-slate-50/50 dark:hover:bg-slate-700/50 transition-colors">
+                      <td className="px-4 lg:px-8 py-3 lg:py-4 text-slate-900 dark:text-white">{p.brand} {p.model}</td>
                       <td className="px-4 lg:px-8 py-3 lg:py-4">
-                        <div className="flex items-center text-blue-600">
+                        <div className="flex items-center text-blue-600 dark:text-blue-400">
                           <User size={12} className="mr-2" /> {p.borrower?.name}
                         </div>
                       </td>
@@ -278,7 +278,7 @@ export const Dashboard: React.FC<DashboardProps> = ({ phones, logs, onDownloadIn
                             department: p.borrower?.department || 'N/A',
                             phones: [p]
                           })}
-                          className="p-2 text-slate-400 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all"
+                          className="p-2 text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/30 rounded-lg transition-all"
                           title="Download Invoice"
                         >
                           <Download size={16} />
@@ -294,24 +294,24 @@ export const Dashboard: React.FC<DashboardProps> = ({ phones, logs, onDownloadIn
 
         {/* Sidebar Layer: Activity Log */}
         <div className="lg:col-span-4 space-y-4 lg:space-y-8">
-           <div className="bg-white p-6 lg:p-8 rounded-2xl lg:rounded-[2.5rem] shadow-sm border border-gray-100 flex flex-col h-full">
-            <h3 className="font-black text-slate-900 uppercase text-[10px] tracking-widest flex items-center mb-6 lg:mb-8">
-              <History className="mr-3 text-indigo-600" size={16} />
+           <div className="bg-white dark:bg-slate-800 p-6 lg:p-8 rounded-2xl lg:rounded-[2.5rem] shadow-sm border border-gray-100 dark:border-slate-700 flex flex-col h-full">
+            <h3 className="font-black text-slate-900 dark:text-white uppercase text-[10px] tracking-widest flex items-center mb-6 lg:mb-8">
+              <History className="mr-3 text-indigo-600 dark:text-indigo-400" size={16} />
               System Audit Trail
             </h3>
             <div className="flex-1 space-y-4 lg:space-y-6 overflow-y-auto max-h-[400px] lg:max-h-[600px] pr-2">
               {logs.length > 0 ? logs.map((log) => (
                 <div key={log.id} className="flex gap-3 lg:gap-4 group animate-in slide-in-from-right-2">
-                  <div className="mt-1 p-2 bg-slate-50 rounded-xl group-hover:bg-blue-50 transition-colors">
+                  <div className="mt-1 p-2 bg-slate-50 dark:bg-slate-700/50 rounded-xl group-hover:bg-blue-50 dark:group-hover:bg-blue-900/30 transition-colors">
                     {getLogIcon(log.action)}
                   </div>
-                  <div className="flex-1 border-b border-slate-50 pb-3 lg:pb-4">
+                  <div className="flex-1 border-b border-slate-50 dark:border-slate-700 pb-3 lg:pb-4">
                     <div className="flex justify-between items-start">
-                      <p className="text-xs font-black text-slate-900">{log.action}</p>
+                      <p className="text-xs font-black text-slate-900 dark:text-white">{log.action}</p>
                       <span className="text-[9px] font-bold text-slate-400 uppercase">{new Date(log.timestamp).toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'})}</span>
                     </div>
-                    <p className="text-[11px] text-slate-500 font-medium mt-1 leading-relaxed">{log.details}</p>
-                    <p className="text-[9px] font-black text-blue-600 mt-2 uppercase tracking-tighter">Op: {log.user}</p>
+                    <p className="text-[11px] text-slate-500 dark:text-slate-400 font-medium mt-1 leading-relaxed">{log.details}</p>
+                    <p className="text-[9px] font-black text-blue-600 dark:text-blue-400 mt-2 uppercase tracking-tighter">Op: {log.user}</p>
                   </div>
                 </div>
               )) : (

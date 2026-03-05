@@ -88,15 +88,15 @@ export const Layout: React.FC<LayoutProps> = ({
     
     if (mode === 'file') {
       return (
-        <div className="flex items-center text-slate-900 text-[10px] font-black bg-slate-100 px-3 py-2 rounded-full border border-slate-200">
-          <HardDrive size={12} className="mr-2 text-blue-600" /> 
+        <div className="flex items-center text-slate-900 dark:text-white text-[10px] font-black bg-slate-100 dark:bg-slate-700 px-3 py-2 rounded-full border border-slate-200 dark:border-slate-600">
+          <HardDrive size={12} className="mr-2 text-blue-600 dark:text-blue-400" /> 
           LOCAL FILE: {activeFileName?.toUpperCase() || 'DB.JSON'}
         </div>
       );
     }
 
     return (
-      <div className="flex items-center text-green-600 text-[10px] font-black bg-green-50 px-3 py-2 rounded-full border border-green-100">
+      <div className="flex items-center text-green-600 dark:text-green-400 text-[10px] font-black bg-green-50 dark:bg-green-900/30 px-3 py-2 rounded-full border border-green-100 dark:border-green-800/50">
         <Database size={12} className="mr-2" /> BROWSER MEMORY (FREE)
       </div>
     );
@@ -138,7 +138,7 @@ export const Layout: React.FC<LayoutProps> = ({
             onClick={() => setIsSidebarOpen(!isSidebarOpen)}
             className="p-2.5 hover:bg-slate-800 rounded-xl transition-colors"
           >
-            {isSidebarOpen ? <X size={20} /> : <Menu size={20} />}
+            {isSidebarOpen ? <X size={20} className="text-white" /> : <Menu size={20} className="text-white" />}
           </button>
         </div>
 
@@ -171,11 +171,11 @@ export const Layout: React.FC<LayoutProps> = ({
           <div className="flex items-center gap-3">
             <button 
               onClick={() => setIsSidebarOpen(true)}
-              className="p-2 hover:bg-gray-100 rounded-xl transition-colors"
+              className="p-2 hover:bg-gray-100 dark:hover:bg-slate-700 rounded-xl transition-colors"
             >
-              <Menu size={24} />
+              <Menu size={24} className="text-slate-600 dark:text-slate-300" />
             </button>
-            <h1 className="text-lg lg:text-2xl font-black text-slate-900 capitalize flex items-center tracking-tight">
+            <h1 className="text-lg lg:text-2xl font-black text-slate-900 dark:text-white capitalize flex items-center tracking-tight">
               {(() => {
                 const match = menuItems.find(mi => mi.path === location.pathname);
                 return match ? match.label : location.pathname.replace(/\//g, ' ').trim() || 'Dashboard';
@@ -202,7 +202,7 @@ export const Layout: React.FC<LayoutProps> = ({
                   {getUserInitials(currentUser?.name || 'Admin User')}
                 </div>
                 
-                <div className="absolute right-0 top-full mt-3 w-48 bg-white rounded-2xl shadow-2xl border border-gray-100 p-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 translate-y-2 group-hover:translate-y-0">
+                <div className="absolute right-0 top-full mt-3 w-48 bg-white dark:bg-slate-800 rounded-2xl shadow-2xl border border-gray-100 dark:border-slate-700 p-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 translate-y-2 group-hover:translate-y-0">
                   <button 
                     onClick={onLogout}
                     className="w-full flex items-center p-3 text-red-500 hover:bg-red-50 rounded-xl transition-colors font-bold text-sm"
