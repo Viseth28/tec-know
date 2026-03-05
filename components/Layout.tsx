@@ -33,16 +33,19 @@ export const Layout: React.FC<LayoutProps> = ({
   onLogout,
   activeFileName
 }) => {
-  const [isSidebarOpen, setIsSidebarOpen] = React.useState(false);
+  const [isSidebarOpen, setIsSidebarOpen] = React.useState(true);
   const [isMobile, setIsMobile] = React.useState(false);
   const mode = dbService.getMode();
   const location = useLocation();
 
   React.useEffect(() => {
     const checkMobile = () => {
-      setIsMobile(window.innerWidth < 1024);
-      if (window.innerWidth < 1024) {
+      const mobile = window.innerWidth < 1024;
+      setIsMobile(mobile);
+      if (mobile) {
         setIsSidebarOpen(false);
+      } else {
+        setIsSidebarOpen(true);
       }
     };
     checkMobile();
@@ -100,11 +103,12 @@ export const Layout: React.FC<LayoutProps> = ({
 
       {/* Sidebar */}
       <aside 
-        className={`${
-          isSidebarOpen ? 'translate-x-0' : '-translate-x-full'
-        } ${
-          isMobile ? 'fixed inset-y-0 left-0 z-50 w-64' : 'relative'
-        } bg-slate-900 text-white transition-all duration-300 flex flex-col shadow-2xl`}
+        className={`
+          ${isMobile 
+            ? (isSidebarOpen ? 'translate-x-0 fixed inset-y-0 left-0 z-50 w-64' : '-translate-x-full fixed inset-y-0 left-0 z-50 w-64')
+            : 'relative w-64'}
+          bg-slate-900 text-white transition-all duration-300 flex flex-col shadow-2xl
+        `}
       >
         <div className="p-4 lg:p-6 flex items-center justify-between border-b border-slate-800">
           {isSidebarOpen && (
@@ -115,29 +119,41 @@ export const Layout: React.FC<LayoutProps> = ({
               <span className="font-black text-xl tracking-tight">TEC-Know</span>
             </div>
           )}
-          <button 
-            onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-            className="p-2.5 hover:bg-slate-800 rounded-xl transition-colors"
-          >
-            {isSidebarOpen ? <X size={20} /> : <Menu size={20} />}
-          </button>
+          {isMobile && (
+            <button 
+              onClick={() => setIsSidebarOpen(!isSidebarOpen)}
+              className="p-2.5 hover:bg-slate-800 rounded-xl transition-colors"
+            >
+              {isSidebarOpen ? <X size={20} /> : <Menu size={20} />}
+            </button>
+          )}
+          {!isMobile && (
+            <button 
+              onClick={() => setIsSidebarOpen(!isSidebarOpen)}
+              className="p-2.5 hover:bg-slate-800 rounded-xl transition-colors"
+            >
+              {isSidebarOpen ? <X size={20} /> : <Menu size={20} />}
+            </button>
+          )}
         </div>
 
-        <nav className="flex-1 p-4 space-y-1.5 mt-4 overflow-y-auto">
-          {menuItems.map((item) => (
-            <NavLink
-              key={item.id}
-              to={item.path}
-              onClick={() => isMobile && setIsSidebarOpen(false)}
-              className={({ isActive }) => `w-full flex items-center p-3.5 rounded-xl transition-all duration-200 group ${
-                isActive ? 'bg-blue-600 text-white shadow-xl shadow-blue-900/40 translate-x-1' : 'text-slate-400 hover:bg-slate-800 hover:text-white'
-              }`}
-            >
-              <item.icon size={22} className={'group-hover:scale-110 transition-transform'} />
-              {isSidebarOpen && <span className="ml-3.5 font-bold text-sm tracking-wide">{item.label}</span>}
-            </NavLink>
-          ))}
-        </nav>
+        {isSidebarOpen && (
+          <nav className="flex-1 p-4 space-y-1.5 mt-4 overflow-y-auto">
+            {menuItems.map((item) => (
+              <NavLink
+                key={item.id}
+                to={item.path}
+                onClick={() => isMobile && setIsSidebarOpen(false)}
+                className={({ isActive }) => `w-full flex items-center p-3.5 rounded-xl transition-all duration-200 group ${
+                  isActive ? 'bg-blue-600 text-white shadow-xl shadow-blue-900/40 translate-x-1' : 'text-slate-400 hover:bg-slate-800 hover:text-white'
+                }`}
+              >
+                <item.icon size={22} className={'group-hover:scale-110 transition-transform'} />
+                <span className="ml-3.5 font-bold text-sm tracking-wide">{item.label}</span>
+              </NavLink>
+            ))}
+          </nav>
+        )}
 
         <div className="p-4 border-t border-slate-800 text-[10px] text-slate-500 uppercase tracking-widest font-black text-center">
           {isSidebarOpen && <p>© 2024 TEC-Know</p>}
