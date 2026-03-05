@@ -41,18 +41,18 @@ export const Inventory: React.FC<InventoryProps> = ({
 
   const getStatusColor = (status: DeviceStatus) => {
     switch (status) {
-      case DeviceStatus.AVAILABLE: return 'bg-green-100 text-green-700';
-      case DeviceStatus.ON_BORROW: return 'bg-orange-100 text-orange-700';
-      default: return 'bg-gray-100 text-gray-700';
+      case DeviceStatus.AVAILABLE: return 'bg-green-100 dark:bg-green-900/50 text-green-700 dark:text-green-400';
+      case DeviceStatus.ON_BORROW: return 'bg-orange-100 dark:bg-orange-900/50 text-orange-700 dark:text-orange-400';
+      default: return 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-400';
     }
   };
 
   const getConditionColor = (condition: DeviceCondition) => {
     switch (condition) {
-      case DeviceCondition.NEW: return 'text-blue-600';
-      case DeviceCondition.USED: return 'text-amber-600';
-      case DeviceCondition.BROKEN: return 'text-red-600';
-      default: return 'text-gray-600';
+      case DeviceCondition.NEW: return 'text-blue-600 dark:text-blue-400';
+      case DeviceCondition.USED: return 'text-amber-600 dark:text-amber-400';
+      case DeviceCondition.BROKEN: return 'text-red-600 dark:text-red-400';
+      default: return 'text-gray-600 dark:text-gray-400';
     }
   };
 
@@ -79,7 +79,7 @@ export const Inventory: React.FC<InventoryProps> = ({
           <input
             type="text"
             placeholder="Search brand, model, or IMEI..."
-            className="w-full pl-10 pr-4 py-2.5 lg:py-2 bg-white border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none"
+            className="w-full pl-10 pr-4 py-2.5 lg:py-2 bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none text-gray-900 dark:text-white"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
           />
@@ -88,7 +88,7 @@ export const Inventory: React.FC<InventoryProps> = ({
         <div className="flex items-center space-x-2 w-full md:w-auto">
           <Filter className="text-gray-400" size={18} />
           <select
-            className="flex-1 md:flex-none px-4 py-2.5 lg:py-2 bg-white border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none"
+            className="flex-1 md:flex-none px-4 py-2.5 lg:py-2 bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none text-gray-900 dark:text-white"
             value={conditionFilter}
             onChange={(e) => setConditionFilter(e.target.value)}
           >
@@ -100,11 +100,11 @@ export const Inventory: React.FC<InventoryProps> = ({
         </div>
       </div>
 
-      <div className="bg-white rounded-2xl lg:rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+      <div className="bg-white dark:bg-slate-800 rounded-2xl lg:rounded-2xl shadow-sm border border-gray-100 dark:border-slate-700 overflow-hidden">
         <div className="overflow-x-auto">
           <table className="w-full text-left table-auto">
-            <thead className="bg-gray-50 border-b border-gray-100">
-              <tr className="text-[10px] text-gray-500 uppercase font-black tracking-widest">
+            <thead className="bg-gray-50 dark:bg-slate-700/50 border-b border-gray-100 dark:border-slate-700">
+              <tr className="text-[10px] text-gray-500 dark:text-slate-400 uppercase font-black tracking-widest">
                 <th className="px-4 lg:px-6 py-3 lg:py-4 min-w-[180px]">Hardware Profile</th>
                 <th className="px-4 lg:px-6 py-3 lg:py-4 w-[140px]">IMEI 1</th>
                 <th className="px-4 lg:px-6 py-3 lg:py-4 w-[140px]">IMEI 2</th>
@@ -114,28 +114,28 @@ export const Inventory: React.FC<InventoryProps> = ({
                 <th className="px-4 lg:px-6 py-3 lg:py-4 text-right w-[90px]">Actions</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-gray-100">
+            <tbody className="divide-y divide-gray-100 dark:divide-slate-700">
               {filteredPhones.map((phone) => (
-                <tr key={phone.id} className="hover:bg-gray-50 transition-colors group">
+                <tr key={phone.id} className="hover:bg-gray-50 dark:hover:bg-slate-700/50 transition-colors group">
                   <td className="px-4 lg:px-6 py-3 lg:py-4">
                     <div className="flex items-center">
-                      <div className="p-2 bg-slate-50 border border-slate-100 rounded-xl mr-3 lg:mr-4 text-slate-400 group-hover:text-blue-500 transition-colors shrink-0">
+                      <div className="p-2 bg-slate-50 dark:bg-slate-700 border border-slate-100 dark:border-slate-600 rounded-xl mr-3 lg:mr-4 text-slate-400 group-hover:text-blue-500 transition-colors shrink-0">
                         <Smartphone size={18} className="lg:w-5 lg:h-5" />
                       </div>
                       <div className="truncate">
-                        <p className="text-sm lg:text-base font-black text-slate-900 leading-tight mb-0.5 truncate">{phone.model}</p>
-                        <p className="text-[10px] font-bold text-slate-400 uppercase tracking-[0.1em]">{phone.brand}</p>
+                        <p className="text-sm lg:text-base font-black text-slate-900 dark:text-white leading-tight mb-0.5 truncate">{phone.model}</p>
+                        <p className="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-[0.1em]">{phone.brand}</p>
                       </div>
                     </div>
                   </td>
                   <td className="px-4 lg:px-6 py-3 lg:py-4">
-                    <div className="bg-slate-50 px-2 py-1 rounded-lg border border-slate-100 inline-block max-w-[120px] lg:max-w-none overflow-hidden">
-                      <p className="text-[10px] lg:text-[11px] font-mono font-black text-slate-700 tracking-normal truncate">{phone.imei1}</p>
+                    <div className="bg-slate-50 dark:bg-slate-700 px-2 py-1 rounded-lg border border-slate-100 dark:border-slate-600 inline-block max-w-[120px] lg:max-w-none overflow-hidden">
+                      <p className="text-[10px] lg:text-[11px] font-mono font-black text-slate-700 dark:text-slate-300 tracking-normal truncate">{phone.imei1}</p>
                     </div>
                   </td>
                   <td className="px-4 lg:px-6 py-3 lg:py-4">
-                    <div className="bg-slate-50/50 px-2 py-1 rounded-lg border border-slate-100/50 inline-block max-w-[120px] lg:max-w-none overflow-hidden">
-                      <p className="text-[10px] lg:text-[11px] font-mono font-bold text-slate-500 tracking-normal truncate">{phone.imei2}</p>
+                    <div className="bg-slate-50/50 dark:bg-slate-700/50 px-2 py-1 rounded-lg border border-slate-100/50 dark:border-slate-600/50 inline-block max-w-[120px] lg:max-w-none overflow-hidden">
+                      <p className="text-[10px] lg:text-[11px] font-mono font-bold text-slate-500 dark:text-slate-400 tracking-normal truncate">{phone.imei2}</p>
                     </div>
                   </td>
                   <td className="px-4 lg:px-6 py-3 lg:py-4">
@@ -151,16 +151,16 @@ export const Inventory: React.FC<InventoryProps> = ({
                   <td className="px-4 lg:px-6 py-3 lg:py-4">
                     {phone.borrower ? (
                       <div className="flex items-center space-x-2">
-                        <div className="w-6 lg:w-7 h-6 lg:h-7 bg-blue-50 text-blue-600 rounded-full flex items-center justify-center text-[9px] lg:text-[10px] font-black shrink-0">
+                        <div className="w-6 lg:w-7 h-6 lg:h-7 bg-blue-50 dark:bg-blue-900/50 text-blue-600 dark:text-blue-400 rounded-full flex items-center justify-center text-[9px] lg:text-[10px] font-black shrink-0">
                           {phone.borrower.name.charAt(0)}
                         </div>
                         <div className="truncate max-w-[100px] lg:max-w-none">
-                          <p className="text-xs font-bold text-slate-900 truncate">{phone.borrower.name}</p>
-                          <p className="text-[9px] lg:text-[10px] text-slate-400 uppercase font-bold tracking-tighter truncate">{phone.borrower.department}</p>
+                          <p className="text-xs font-bold text-slate-900 dark:text-white truncate">{phone.borrower.name}</p>
+                          <p className="text-[9px] lg:text-[10px] text-slate-400 dark:text-slate-500 uppercase font-bold tracking-tighter truncate">{phone.borrower.department}</p>
                         </div>
                       </div>
                     ) : (
-                      <span className="text-[9px] lg:text-[10px] font-black text-slate-300 uppercase tracking-widest">In Stock</span>
+                      <span className="text-[9px] lg:text-[10px] font-black text-slate-300 dark:text-slate-500 uppercase tracking-widest">In Stock</span>
                     )}
                   </td>
                   <td className="px-4 lg:px-6 py-3 lg:py-4 text-right">
@@ -168,7 +168,7 @@ export const Inventory: React.FC<InventoryProps> = ({
                       {phone.status === DeviceStatus.AVAILABLE ? (
                         <button
                           onClick={() => onNavigateToBorrow?.(phone)}
-                          className="p-1.5 lg:p-2 hover:bg-blue-50 text-slate-400 hover:text-blue-600 rounded-xl transition-all"
+                          className="p-1.5 lg:p-2 hover:bg-blue-50 dark:hover:bg-blue-900/30 text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 rounded-xl transition-all"
                           title="Borrow"
                         >
                           <ArrowUpRight size={16} className="lg:w-[18px]" />
@@ -176,7 +176,7 @@ export const Inventory: React.FC<InventoryProps> = ({
                       ) : (
                         <button
                           onClick={() => onNavigateToReturn?.(phone)}
-                          className="p-1.5 lg:p-2 hover:bg-green-50 text-slate-400 hover:text-green-600 rounded-xl transition-all"
+                          className="p-1.5 lg:p-2 hover:bg-green-50 dark:hover:bg-green-900/30 text-slate-400 hover:text-green-600 dark:hover:text-green-400 rounded-xl transition-all"
                           title="Return"
                         >
                           <ArrowDownLeft size={16} className="lg:w-[18px]" />
@@ -185,14 +185,14 @@ export const Inventory: React.FC<InventoryProps> = ({
 
                       <button 
                         onClick={() => setEditingPhone(phone)}
-                        className="p-1.5 lg:p-2 hover:bg-blue-50 text-slate-400 hover:text-blue-600 rounded-xl transition-all"
+                        className="p-1.5 lg:p-2 hover:bg-blue-50 dark:hover:bg-blue-900/30 text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 rounded-xl transition-all"
                         title="Edit Device"
                       >
                         <Edit2 size={16} className="lg:w-[18px]" />
                       </button>
                       <button 
                         onClick={() => setDeletingId(phone.id)}
-                        className="p-1.5 lg:p-2 hover:bg-red-50 text-slate-400 hover:text-red-600 rounded-xl transition-all"
+                        className="p-1.5 lg:p-2 hover:bg-red-50 dark:hover:bg-red-900/30 text-slate-400 hover:text-red-600 dark:hover:text-red-400 rounded-xl transition-all"
                         title="Delete Device"
                       >
                         <Trash2 size={16} className="lg:w-[18px]" />
@@ -219,10 +219,10 @@ export const Inventory: React.FC<InventoryProps> = ({
       {/* Edit Modal */}
       {editingPhone && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4 animate-in fade-in duration-200">
-          <div className="bg-white w-full max-w-lg rounded-2xl lg:rounded-[2.5rem] shadow-2xl overflow-y-auto max-h-[90vh] relative animate-in zoom-in-95 duration-300">
-            <div className="sticky top-0 bg-white p-4 lg:p-8 border-b border-gray-100 flex items-center justify-between z-10">
-              <h3 className="text-lg lg:text-2xl font-bold text-gray-900">Edit Device</h3>
-              <button onClick={() => setEditingPhone(null)} className="p-2 text-gray-400 hover:text-gray-600 rounded-full transition-all">
+          <div className="bg-white dark:bg-slate-800 w-full max-w-lg rounded-2xl lg:rounded-[2.5rem] shadow-2xl overflow-y-auto max-h-[90vh] relative animate-in zoom-in-95 duration-300">
+            <div className="sticky top-0 bg-white dark:bg-slate-800 p-4 lg:p-8 border-b border-gray-100 dark:border-slate-700 flex items-center justify-between z-10">
+              <h3 className="text-lg lg:text-2xl font-bold text-gray-900 dark:text-white">Edit Device</h3>
+              <button onClick={() => setEditingPhone(null)} className="p-2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 rounded-full transition-all">
                 <X size={22} />
               </button>
             </div>
@@ -230,19 +230,19 @@ export const Inventory: React.FC<InventoryProps> = ({
             <form onSubmit={handleUpdate} className="p-4 lg:p-8 space-y-4 lg:space-y-6">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 lg:gap-4">
                 <div className="space-y-1">
-                  <label className="text-xs font-bold text-gray-500 uppercase">Brand</label>
+                  <label className="text-xs font-bold text-gray-500 dark:text-slate-400 uppercase">Brand</label>
                   <input
                     required
-                    className="w-full px-4 py-2.5 lg:py-2 bg-gray-50 border rounded-xl focus:ring-2 focus:ring-blue-500 outline-none"
+                    className="w-full px-4 py-2.5 lg:py-2 bg-gray-50 dark:bg-slate-700 border border-gray-200 dark:border-slate-600 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none text-gray-900 dark:text-white"
                     value={editingPhone.brand}
                     onChange={e => setEditingPhone({...editingPhone, brand: e.target.value})}
                   />
                 </div>
                 <div className="space-y-1">
-                  <label className="text-xs font-bold text-gray-500 uppercase">Model</label>
+                  <label className="text-xs font-bold text-gray-500 dark:text-slate-400 uppercase">Model</label>
                   <input
                     required
-                    className="w-full px-4 py-2.5 lg:py-2 bg-gray-50 border rounded-xl focus:ring-2 focus:ring-blue-500 outline-none"
+                    className="w-full px-4 py-2.5 lg:py-2 bg-gray-50 dark:bg-slate-700 border border-gray-200 dark:border-slate-600 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none text-gray-900 dark:text-white"
                     value={editingPhone.model}
                     onChange={e => setEditingPhone({...editingPhone, model: e.target.value})}
                   />
@@ -251,19 +251,19 @@ export const Inventory: React.FC<InventoryProps> = ({
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 lg:gap-4">
                 <div className="space-y-1">
-                  <label className="text-xs font-bold text-gray-500 uppercase">Price ($)</label>
+                  <label className="text-xs font-bold text-gray-500 dark:text-slate-400 uppercase">Price ($)</label>
                   <input
                     type="number"
                     required
-                    className="w-full px-4 py-2.5 lg:py-2 bg-gray-50 border rounded-xl focus:ring-2 focus:ring-blue-500 outline-none"
+                    className="w-full px-4 py-2.5 lg:py-2 bg-gray-50 dark:bg-slate-700 border border-gray-200 dark:border-slate-600 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none text-gray-900 dark:text-white"
                     value={editingPhone.price}
                     onChange={e => setEditingPhone({...editingPhone, price: Number(e.target.value)})}
                   />
                 </div>
                 <div className="space-y-1">
-                  <label className="text-xs font-bold text-gray-500 uppercase">Condition</label>
+                  <label className="text-xs font-bold text-gray-500 dark:text-slate-400 uppercase">Condition</label>
                   <select
-                    className="w-full px-4 py-2.5 lg:py-2 bg-gray-50 border rounded-xl focus:ring-2 focus:ring-blue-500 outline-none"
+                    className="w-full px-4 py-2.5 lg:py-2 bg-gray-50 dark:bg-slate-700 border border-gray-200 dark:border-slate-600 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none text-gray-900 dark:text-white"
                     value={editingPhone.condition}
                     onChange={e => setEditingPhone({...editingPhone, condition: e.target.value as DeviceCondition})}
                   >
@@ -276,7 +276,7 @@ export const Inventory: React.FC<InventoryProps> = ({
 
               {/* Dynamic Custom Fields in Edit Mode */}
               {customFieldDefinitions.length > 0 && (
-                <div className="pt-3 lg:pt-4 space-y-3 lg:space-y-4 border-t border-gray-100">
+                <div className="pt-3 lg:pt-4 space-y-3 lg:space-y-4 border-t border-gray-100 dark:border-slate-700">
                   <h4 className="text-[10px] font-black text-gray-400 uppercase tracking-widest flex items-center">
                     <Layers size={14} className="mr-2" />
                     Custom Attributes
@@ -284,10 +284,10 @@ export const Inventory: React.FC<InventoryProps> = ({
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 lg:gap-4">
                     {customFieldDefinitions.map((field) => (
                       <div key={field.id} className="space-y-1">
-                        <label className="text-xs font-bold text-gray-500 uppercase">{field.label}</label>
+                        <label className="text-xs font-bold text-gray-500 dark:text-slate-400 uppercase">{field.label}</label>
                         <input
                           type={field.type}
-                          className="w-full px-4 py-2.5 lg:py-2 bg-gray-50 border rounded-xl focus:ring-2 focus:ring-blue-500 outline-none"
+                          className="w-full px-4 py-2.5 lg:py-2 bg-gray-50 dark:bg-slate-700 border border-gray-200 dark:border-slate-600 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none text-gray-900 dark:text-white"
                           value={editingPhone.customFields?.[field.id] || ''}
                           onChange={e => setEditingPhone({
                             ...editingPhone, 
@@ -304,22 +304,22 @@ export const Inventory: React.FC<InventoryProps> = ({
               )}
 
               <div className="space-y-1">
-                <label className="text-xs font-bold text-gray-500 uppercase">IMEI 1</label>
+                <label className="text-xs font-bold text-gray-500 dark:text-slate-400 uppercase">IMEI 1</label>
                 <input
                   required
                   maxLength={15}
-                  className="w-full px-4 py-2.5 lg:py-2 bg-gray-50 border rounded-xl font-mono focus:ring-2 focus:ring-blue-500 outline-none"
+                  className="w-full px-4 py-2.5 lg:py-2 bg-gray-50 dark:bg-slate-700 border border-gray-200 dark:border-slate-600 rounded-xl font-mono focus:ring-2 focus:ring-blue-500 outline-none text-gray-900 dark:text-white"
                   value={editingPhone.imei1}
                   onChange={e => setEditingPhone({...editingPhone, imei1: e.target.value})}
                 />
               </div>
 
               <div className="space-y-1">
-                <label className="text-xs font-bold text-gray-500 uppercase">IMEI 2</label>
+                <label className="text-xs font-bold text-gray-500 dark:text-slate-400 uppercase">IMEI 2</label>
                 <input
                   required
                   maxLength={15}
-                  className="w-full px-4 py-2.5 lg:py-2 bg-gray-50 border rounded-xl font-mono focus:ring-2 focus:ring-blue-500 outline-none"
+                  className="w-full px-4 py-2.5 lg:py-2 bg-gray-50 dark:bg-slate-700 border border-gray-200 dark:border-slate-600 rounded-xl font-mono focus:ring-2 focus:ring-blue-500 outline-none text-gray-900 dark:text-white"
                   value={editingPhone.imei2}
                   onChange={e => setEditingPhone({...editingPhone, imei2: e.target.value})}
                 />
@@ -329,7 +329,7 @@ export const Inventory: React.FC<InventoryProps> = ({
                 <button 
                   type="button"
                   onClick={() => setEditingPhone(null)}
-                  className="flex-1 py-3 border-2 border-gray-100 font-bold text-gray-500 rounded-xl hover:bg-gray-50 transition-all"
+                  className="flex-1 py-3 border-2 border-gray-100 dark:border-slate-600 font-bold text-gray-500 dark:text-slate-400 rounded-xl hover:bg-gray-50 dark:hover:bg-slate-700 transition-all"
                 >
                   Cancel
                 </button>
@@ -346,17 +346,15 @@ export const Inventory: React.FC<InventoryProps> = ({
         </div>
       )}
 
-      {/* quick borrow modal removed — navigation flow used instead */}
-
       {/* Delete Confirmation Modal */}
       {deletingId && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4 animate-in fade-in duration-200">
-          <div className="bg-white w-full max-w-sm rounded-2xl lg:rounded-[2rem] shadow-2xl p-6 lg:p-8 text-center animate-in zoom-in-95 duration-300">
-            <div className="w-12 lg:w-16 h-12 lg:h-16 bg-red-100 text-red-600 rounded-full flex items-center justify-center mx-auto mb-4 lg:mb-6">
+          <div className="bg-white dark:bg-slate-800 w-full max-w-sm rounded-2xl lg:rounded-[2rem] shadow-2xl p-6 lg:p-8 text-center animate-in zoom-in-95 duration-300">
+            <div className="w-12 lg:w-16 h-12 lg:h-16 bg-red-100 dark:bg-red-900/50 text-red-600 dark:text-red-400 rounded-full flex items-center justify-center mx-auto mb-4 lg:mb-6">
               <AlertTriangle size={24} className="lg:w-8 lg:h-8" />
             </div>
-            <h3 className="text-lg lg:text-2xl font-bold text-gray-900 mb-2">Are you sure?</h3>
-            <p className="text-gray-500 text-sm mb-6 lg:mb-8">This action will permanently remove this device from your inventory system.</p>
+            <h3 className="text-lg lg:text-2xl font-bold text-gray-900 dark:text-white mb-2">Are you sure?</h3>
+            <p className="text-gray-500 dark:text-slate-400 text-sm mb-6 lg:mb-8">This action will permanently remove this device from your inventory system.</p>
             <div className="flex flex-col space-y-3">
               <button 
                 onClick={confirmDelete}
@@ -366,7 +364,7 @@ export const Inventory: React.FC<InventoryProps> = ({
               </button>
               <button 
                 onClick={() => setDeletingId(null)}
-                className="w-full py-3 bg-gray-100 text-gray-600 font-bold rounded-xl hover:bg-gray-200 transition-all"
+                className="w-full py-3 bg-gray-100 dark:bg-slate-700 text-gray-600 dark:text-slate-300 font-bold rounded-xl hover:bg-gray-200 dark:hover:bg-slate-600 transition-all"
               >
                 No, Keep Device
               </button>

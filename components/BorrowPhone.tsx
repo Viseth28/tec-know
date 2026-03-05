@@ -333,7 +333,7 @@ export const BorrowPhone: React.FC<BorrowPhoneProps> = ({ phones, onUpdate, onBa
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-8 items-start no-print">
         {/* LEFT COLUMN: Scan & Info */}
         <div className="lg:col-span-7 space-y-4 lg:space-y-6">
-          <div className="bg-white rounded-2xl lg:rounded-[2rem] shadow-xl border border-gray-100 overflow-hidden">
+          <div className="bg-white dark:bg-slate-800 rounded-2xl lg:rounded-[2rem] shadow-xl border border-gray-100 dark:border-slate-700 overflow-hidden">
             <div className="p-4 lg:p-6 bg-blue-600 text-white flex items-center">
               <Smartphone className="mr-2 lg:mr-3 w-5 h-5" />
               <h3 className="text-base lg:text-lg font-bold">Handover Configuration</h3>
@@ -341,8 +341,8 @@ export const BorrowPhone: React.FC<BorrowPhoneProps> = ({ phones, onUpdate, onBa
 
             <div className="p-4 lg:p-8 space-y-6 lg:space-y-8">
               {/* Scan Section */}
-              <div className="bg-blue-50/50 p-4 lg:p-6 rounded-xl lg:rounded-2xl border border-blue-100/50 space-y-4">
-                <h4 className="text-xs font-bold text-blue-600 uppercase tracking-widest flex items-center">
+              <div className="bg-blue-50/50 dark:bg-blue-900/20 p-4 lg:p-6 rounded-xl lg:rounded-2xl border border-blue-100/50 dark:border-blue-800/50 space-y-4">
+                <h4 className="text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-widest flex items-center">
                   <span className="w-2 h-2 bg-blue-600 rounded-full mr-2"></span>
                   Asset Identification
                 </h4>
@@ -351,7 +351,7 @@ export const BorrowPhone: React.FC<BorrowPhoneProps> = ({ phones, onUpdate, onBa
                   <input
                     ref={imeiInputRef}
                     autoFocus
-                    className="w-full pl-10 lg:pl-12 pr-3 lg:pr-4 py-3 rounded-xl border-2 border-transparent bg-white focus:border-blue-500 font-mono text-base lg:text-lg outline-none transition-all shadow-sm"
+                    className="w-full pl-10 lg:pl-12 pr-3 lg:pr-4 py-3 rounded-xl border-2 border-transparent bg-white dark:bg-slate-700 dark:text-white dark:placeholder:text-slate-500 focus:border-blue-500 font-mono text-base lg:text-lg outline-none transition-all shadow-sm"
                     placeholder="Scan IMEI barcode..."
                     value={imeiInput}
                     onChange={e => setImeiInput(e.target.value.replace(/[^0-9]/g, ''))}
@@ -366,28 +366,28 @@ export const BorrowPhone: React.FC<BorrowPhoneProps> = ({ phones, onUpdate, onBa
               </div>
 
               {/* Recipient Section */}
-              <div className="bg-gray-50/50 p-4 lg:p-6 rounded-xl lg:rounded-2xl border border-gray-100/50 space-y-4 lg:space-y-6">
-                <h4 className="text-xs font-bold text-gray-500 uppercase tracking-widest flex items-center">
+              <div className="bg-gray-50/50 dark:bg-slate-700/30 p-4 lg:p-6 rounded-xl lg:rounded-2xl border border-gray-100/50 dark:border-slate-600/50 space-y-4 lg:space-y-6">
+                <h4 className="text-xs font-bold text-gray-500 dark:text-slate-400 uppercase tracking-widest flex items-center">
                   <User size={14} className="mr-2" />
                   Recipient Authorization
                 </h4>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 lg:gap-6">
                   <div className="space-y-2">
-                    <label className="text-sm font-semibold text-gray-700">Full Name</label>
+                    <label className="text-sm font-semibold text-gray-700 dark:text-slate-300">Full Name</label>
                     <input
                       required
-                      className="w-full px-4 py-2.5 lg:py-2 rounded-xl border border-gray-200 focus:ring-2 focus:ring-blue-500 outline-none transition-all bg-white"
+                      className="w-full px-4 py-2.5 lg:py-2 rounded-xl border border-gray-200 dark:border-slate-600 focus:ring-2 focus:ring-blue-500 outline-none transition-all bg-white dark:bg-slate-700 dark:text-white dark:placeholder:text-slate-400"
                       placeholder="Enter recipient name..."
                       value={borrowerName}
                       onChange={e => setBorrowerName(e.target.value)}
                     />
                   </div>
                   <div className="space-y-2">
-                    <label className="text-sm font-semibold text-gray-700">Department</label>
+                    <label className="text-sm font-semibold text-gray-700 dark:text-slate-300">Department</label>
                     <input
                       list="dept-list-borrow"
                       required
-                      className="w-full px-4 py-2.5 lg:py-2 rounded-xl border border-gray-200 focus:ring-2 focus:ring-blue-500 outline-none transition-all bg-white"
+                      className="w-full px-4 py-2.5 lg:py-2 rounded-xl border border-gray-200 dark:border-slate-600 focus:ring-2 focus:ring-blue-500 outline-none transition-all bg-white dark:bg-slate-700 dark:text-white dark:placeholder:text-slate-400"
                       placeholder="Type or select..."
                       value={department}
                       onChange={e => setDepartment(e.target.value)}
@@ -402,11 +402,11 @@ export const BorrowPhone: React.FC<BorrowPhoneProps> = ({ phones, onUpdate, onBa
               </div>
 
               {/* Action Buttons for Left Column */}
-              <div className="pt-4 lg:pt-6 border-t border-gray-100 space-y-3 lg:space-y-4">
+              <div className="pt-4 lg:pt-6 border-t border-gray-100 dark:border-slate-700 space-y-3 lg:space-y-4">
                 <button
                   onClick={handleCompleteTransaction}
                   disabled={!isFormValid || isProcessing}
-                  className="w-full py-4 lg:py-5 bg-blue-600 disabled:bg-gray-100 disabled:text-gray-300 hover:bg-blue-700 text-white font-black rounded-xl lg:rounded-2xl flex items-center justify-center transition-all shadow-xl shadow-blue-100 active:scale-95 text-sm uppercase tracking-widest"
+                  className="w-full py-4 lg:py-5 bg-blue-600 disabled:bg-gray-100 disabled:text-gray-300 dark:disabled:bg-slate-700 dark:disabled:text-slate-500 hover:bg-blue-700 text-white font-black rounded-xl lg:rounded-2xl flex items-center justify-center transition-all shadow-xl shadow-blue-100 dark:shadow-none active:scale-95 text-sm uppercase tracking-widest"
                 >
                   {isProcessing ? <Loader2 className="animate-spin w-5 h-5" /> : <Save className="mr-2 w-5 h-5" size={20} />}
                   Complete System Log
@@ -415,7 +415,7 @@ export const BorrowPhone: React.FC<BorrowPhoneProps> = ({ phones, onUpdate, onBa
                 <button
                   onClick={downloadImage}
                   disabled={!isFormValid || isProcessing}
-                  className="w-full flex items-center justify-center py-3 lg:py-4 bg-slate-900 disabled:bg-gray-100 disabled:text-gray-300 hover:bg-black text-white font-black rounded-xl lg:rounded-2xl transition-all shadow-lg active:scale-95 text-[10px] uppercase tracking-[0.2em]"
+                  className="w-full flex items-center justify-center py-3 lg:py-4 bg-slate-900 disabled:bg-gray-100 disabled:text-gray-300 dark:disabled:bg-slate-700 dark:disabled:text-slate-500 hover:bg-black text-white font-black rounded-xl lg:rounded-2xl transition-all shadow-lg active:scale-95 text-[10px] uppercase tracking-[0.2em]"
                 >
                   <FileText className="mr-2 w-4 h-4" size={16} />
                   Download Invoice
@@ -427,7 +427,7 @@ export const BorrowPhone: React.FC<BorrowPhoneProps> = ({ phones, onUpdate, onBa
 
         {/* RIGHT COLUMN: Queue Card */}
         <div className="lg:col-span-5 lg:sticky lg:top-24">
-          <div className="bg-white rounded-2xl lg:rounded-[2rem] shadow-xl border border-gray-100 overflow-hidden flex flex-col h-full max-h-[calc(100vh-200px)] lg:max-h-[calc(100vh-160px)]">
+          <div className="bg-white dark:bg-slate-800 rounded-2xl lg:rounded-[2rem] shadow-xl border border-gray-100 dark:border-slate-700 overflow-hidden flex flex-col h-full max-h-[calc(100vh-200px)] lg:max-h-[calc(100vh-160px)]">
             <div className="p-4 lg:p-6 bg-slate-900 text-white flex items-center justify-between shrink-0">
               <div className="flex items-center">
                 <ShoppingCart className="mr-2 lg:mr-3 text-blue-400 w-5 h-5" />
@@ -440,33 +440,33 @@ export const BorrowPhone: React.FC<BorrowPhoneProps> = ({ phones, onUpdate, onBa
             
             <div className="p-4 lg:p-8 flex-1 overflow-y-auto space-y-4 lg:space-y-6">
               <div className="space-y-3 lg:space-y-4">
-                <h4 className="text-xs font-bold text-gray-500 uppercase tracking-widest flex items-center">
+                <h4 className="text-xs font-bold text-gray-500 dark:text-slate-400 uppercase tracking-widest flex items-center">
                   <ClipboardList size={14} className="mr-2" />
                   Queued Assets
                 </h4>
                 
                 <div className="space-y-2 lg:space-y-3">
                   {basket.length === 0 ? (
-                    <div className="py-16 lg:py-20 border-2 border-dashed border-gray-100 rounded-2xl flex flex-col items-center justify-center text-gray-300">
+                    <div className="py-16 lg:py-20 border-2 border-dashed border-gray-100 dark:border-slate-700 rounded-2xl flex flex-col items-center justify-center text-gray-300 dark:text-slate-500">
                       <Barcode size={36} className="lg:w-12 lg:h-12 mb-2 opacity-10" />
                       <p className="text-[10px] font-black uppercase tracking-widest">No assets queued</p>
-                      <p className="text-[9px] font-medium text-gray-400 mt-1">Scan IMEI to begin</p>
+                      <p className="text-[9px] font-medium text-gray-400 dark:text-slate-500 mt-1">Scan IMEI to begin</p>
                     </div>
                   ) : (
                     basket.map((p, idx) => (
-                      <div key={p.id} className="bg-gray-50 px-4 lg:px-5 py-3 lg:py-4 rounded-xl border border-gray-100 flex items-center justify-between group hover:bg-white hover:shadow-md transition-all">
+                      <div key={p.id} className="bg-gray-50 dark:bg-slate-700/50 px-4 lg:px-5 py-3 lg:py-4 rounded-xl border border-gray-100 dark:border-slate-600 flex items-center justify-between group hover:bg-white dark:hover:bg-slate-600 hover:shadow-md transition-all">
                         <div className="flex items-center gap-3 lg:gap-4">
-                          <div className="w-7 lg:w-8 h-7 lg:h-8 bg-blue-100 text-blue-600 rounded-lg flex items-center justify-center font-black text-xs">
+                          <div className="w-7 lg:w-8 h-7 lg:h-8 bg-blue-100 dark:bg-blue-900/50 text-blue-600 dark:text-blue-400 rounded-lg flex items-center justify-center font-black text-xs">
                             {idx + 1}
                           </div>
                           <div>
-                            <p className="font-bold text-gray-900 leading-none text-sm lg:text-base">{p.model}</p>
-                            <p className="text-[9px] lg:text-[10px] text-gray-400 font-bold uppercase tracking-widest mt-1">{p.brand} - {p.imei1.slice(-6)}</p>
+                            <p className="font-bold text-gray-900 dark:text-white leading-none text-sm lg:text-base">{p.model}</p>
+                            <p className="text-[9px] lg:text-[10px] text-gray-400 dark:text-slate-400 font-bold uppercase tracking-widest mt-1">{p.brand} - {p.imei1.slice(-6)}</p>
                           </div>
                         </div>
                         <button 
                           onClick={() => setBasket(basket.filter(b => b.id !== p.id))}
-                          className="p-1.5 lg:p-2 text-gray-300 hover:text-red-500 hover:bg-red-50 rounded-lg transition-all opacity-0 group-hover:opacity-100"
+                          className="p-1.5 lg:p-2 text-gray-300 dark:text-slate-400 hover:text-red-500 dark:hover:bg-red-900/30 hover:bg-red-50 rounded-lg transition-all opacity-0 group-hover:opacity-100"
                         >
                           <Trash2 size={16} className="lg:w-[18px]" />
                         </button>
@@ -477,11 +477,11 @@ export const BorrowPhone: React.FC<BorrowPhoneProps> = ({ phones, onUpdate, onBa
               </div>
 
               {basket.length > 0 && (
-                <div className="pt-4 lg:pt-6 border-t border-gray-100">
+                <div className="pt-4 lg:pt-6 border-t border-gray-100 dark:border-slate-700">
                   <div className="flex items-center justify-between">
                     <div>
-                      <p className="text-[10px] font-black text-gray-400 uppercase tracking-widest">Total Asset Value</p>
-                      <p className="text-xl lg:text-2xl font-black text-slate-900">${currentTotal.toLocaleString()}</p>
+                      <p className="text-[10px] font-black text-gray-400 dark:text-slate-400 uppercase tracking-widest">Total Asset Value</p>
+                      <p className="text-xl lg:text-2xl font-black text-slate-900 dark:text-white">${currentTotal.toLocaleString()}</p>
                     </div>
                   </div>
                 </div>
@@ -494,18 +494,18 @@ export const BorrowPhone: React.FC<BorrowPhoneProps> = ({ phones, onUpdate, onBa
       {/* SUCCESS MODAL */}
       {showSuccessModal && activeSession && (
         <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-2xl p-4 lg:p-6 animate-in fade-in duration-500 no-print">
-          <div className="bg-white w-full max-w-lg rounded-2xl lg:rounded-[2.5rem] shadow-2xl overflow-hidden animate-in zoom-in-95 duration-300">
-            <div className="p-8 lg:p-12 text-center bg-green-50 border-b border-green-100">
-              <div className="w-16 lg:w-20 h-16 lg:h-20 bg-white text-green-500 rounded-full flex items-center justify-center mx-auto mb-4 lg:mb-6 shadow-xl">
+          <div className="bg-white dark:bg-slate-800 w-full max-w-lg rounded-2xl lg:rounded-[2.5rem] shadow-2xl overflow-hidden animate-in zoom-in-95 duration-300">
+            <div className="p-8 lg:p-12 text-center bg-green-50 dark:bg-green-900/20 border-b border-green-100 dark:border-green-800/50">
+              <div className="w-16 lg:w-20 h-16 lg:h-20 bg-white dark:bg-slate-700 text-green-500 rounded-full flex items-center justify-center mx-auto mb-4 lg:mb-6 shadow-xl">
                 <CheckCircle2 size={36} className="lg:w-11 lg:h-11" />
               </div>
-              <h4 className="text-2xl lg:text-3xl font-black text-slate-900 tracking-tight">Verified</h4>
-              <p className="text-green-700 font-black mt-2 text-xs uppercase tracking-[0.2em]">Hardware Dispatched</p>
+              <h4 className="text-2xl lg:text-3xl font-black text-slate-900 dark:text-white tracking-tight">Verified</h4>
+              <p className="text-green-700 dark:text-green-400 font-black mt-2 text-xs uppercase tracking-[0.2em]">Hardware Dispatched</p>
             </div>
             
             <div className="p-6 lg:p-10 space-y-6 lg:space-y-8">
-              <p className="text-center text-gray-500 font-medium leading-relaxed text-sm lg:text-base">
-                Transaction ID <span className="text-slate-900 font-black">{activeSession.invoiceId}</span> completed. Manifest successfully logged.
+              <p className="text-center text-gray-500 dark:text-slate-400 font-medium leading-relaxed text-sm lg:text-base">
+                Transaction ID <span className="text-slate-900 dark:text-white font-black">{activeSession.invoiceId}</span> completed. Manifest successfully logged.
               </p>
               
               <div className="grid grid-cols-2 gap-3 lg:gap-4">
@@ -530,7 +530,7 @@ export const BorrowPhone: React.FC<BorrowPhoneProps> = ({ phones, onUpdate, onBa
                   setShowSuccessModal(false);
                   resetForm();
                 }}
-                className="w-full py-3 lg:py-4 text-gray-400 font-bold hover:text-slate-900 transition-colors bg-gray-50 rounded-xl uppercase tracking-widest text-[10px]"
+                className="w-full py-3 lg:py-4 text-gray-400 dark:text-slate-500 font-bold hover:text-slate-900 dark:hover:text-white transition-colors bg-gray-50 dark:bg-slate-700 rounded-xl uppercase tracking-widest text-[10px]"
               >
                 Close Handover Portal
               </button>

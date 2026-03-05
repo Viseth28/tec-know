@@ -127,7 +127,7 @@ export const RegisterPhone: React.FC<RegisterPhoneProps> = ({
         
         {/* LEFT COLUMN: Configuration & Scanner */}
         <div className="lg:col-span-7 space-y-4 lg:space-y-6">
-          <div className="bg-white rounded-2xl lg:rounded-[2.5rem] shadow-xl border border-gray-100 overflow-hidden">
+          <div className="bg-white dark:bg-slate-800 rounded-2xl lg:rounded-[2.5rem] shadow-xl border border-gray-100 dark:border-slate-700 overflow-hidden">
             <div className="p-4 lg:p-6 bg-blue-600 text-white flex items-center justify-between">
               <div className="flex items-center">
                 <PackagePlus className="mr-2 lg:mr-3 w-5 h-5" />
@@ -149,47 +149,47 @@ export const RegisterPhone: React.FC<RegisterPhoneProps> = ({
             
             <div className="p-4 lg:p-8 space-y-6 lg:space-y-8">
               {/* Batch Config */}
-              <div className="bg-gray-50/50 p-4 lg:p-6 rounded-xl lg:rounded-2xl border border-gray-100/50 space-y-4 lg:space-y-6">
-                <h4 className="text-xs font-bold text-gray-500 uppercase tracking-widest flex items-center">
+              <div className="bg-gray-50/50 dark:bg-slate-800/50 p-4 lg:p-6 rounded-xl lg:rounded-2xl border border-gray-100/50 dark:border-slate-700/50 space-y-4 lg:space-y-6">
+                <h4 className="text-xs font-bold text-gray-500 dark:text-slate-400 uppercase tracking-widest flex items-center">
                   <span className="w-2 h-2 bg-blue-500 rounded-full mr-2"></span>
                   Model Specification
                 </h4>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 lg:gap-6">
                   <div className="space-y-2">
-                    <label className="text-sm font-semibold text-gray-700">Brand</label>
+                    <label className="text-sm font-semibold text-gray-700 dark:text-slate-300">Brand</label>
                     <input
                       required
-                      className="w-full px-4 py-2.5 lg:py-2 rounded-xl border border-gray-200 focus:ring-2 focus:ring-blue-500 outline-none transition-all bg-white"
+                      className="w-full px-4 py-2.5 lg:py-2 rounded-xl border border-gray-200 dark:border-slate-600 focus:ring-2 focus:ring-blue-500 outline-none transition-all bg-white dark:bg-slate-700 dark:text-white dark:placeholder:text-slate-400"
                       placeholder="e.g. Apple"
                       value={form.brand}
                       onChange={e => setForm({...form, brand: e.target.value})}
                     />
                   </div>
                   <div className="space-y-2">
-                    <label className="text-sm font-semibold text-gray-700">Model Name</label>
+                    <label className="text-sm font-semibold text-gray-700 dark:text-slate-300">Model Name</label>
                     <input
                       required
-                      className="w-full px-4 py-2.5 lg:py-2 rounded-xl border border-gray-200 focus:ring-2 focus:ring-blue-500 outline-none transition-all bg-white"
+                      className="w-full px-4 py-2.5 lg:py-2 rounded-xl border border-gray-200 dark:border-slate-600 focus:ring-2 focus:ring-blue-500 outline-none transition-all bg-white dark:bg-slate-700 dark:text-white dark:placeholder:text-slate-400"
                       placeholder="e.g. iPhone 15 Pro"
                       value={form.model}
                       onChange={e => setForm({...form, model: e.target.value})}
                     />
                   </div>
                   <div className="space-y-2">
-                    <label className="text-sm font-semibold text-gray-700">Asset Value ($)</label>
+                    <label className="text-sm font-semibold text-gray-700 dark:text-slate-300">Asset Value ($)</label>
                     <input
                       required
                       type="number"
-                      className="w-full px-4 py-2.5 lg:py-2 rounded-xl border border-gray-200 focus:ring-2 focus:ring-blue-500 outline-none transition-all bg-white"
+                      className="w-full px-4 py-2.5 lg:py-2 rounded-xl border border-gray-200 dark:border-slate-600 focus:ring-2 focus:ring-blue-500 outline-none transition-all bg-white dark:bg-slate-700 dark:text-white dark:placeholder:text-slate-400"
                       placeholder="0.00"
                       value={form.price}
                       onChange={e => setForm({...form, price: e.target.value})}
                     />
                   </div>
                   <div className="space-y-2">
-                    <label className="text-sm font-semibold text-gray-700">Condition</label>
+                    <label className="text-sm font-semibold text-gray-700 dark:text-slate-300">Condition</label>
                     <select
-                      className="w-full px-4 py-2.5 lg:py-2 rounded-xl border border-gray-200 focus:ring-2 focus:ring-blue-500 outline-none transition-all bg-white"
+                      className="w-full px-4 py-2.5 lg:py-2 rounded-xl border border-gray-200 dark:border-slate-600 focus:ring-2 focus:ring-blue-500 outline-none transition-all bg-white dark:bg-slate-700 dark:text-white"
                       value={form.condition}
                       onChange={e => setForm({...form, condition: e.target.value as DeviceCondition})}
                     >
@@ -202,8 +202,8 @@ export const RegisterPhone: React.FC<RegisterPhoneProps> = ({
               </div>
 
               {/* Unique Identifiers */}
-              <div className="bg-blue-50/50 p-4 lg:p-6 rounded-xl lg:rounded-2xl border border-blue-100/50 space-y-4 lg:space-y-6">
-                <h4 className="text-xs font-bold text-blue-600 uppercase tracking-widest flex items-center">
+              <div className="bg-blue-50/50 dark:bg-blue-900/20 p-4 lg:p-6 rounded-xl lg:rounded-2xl border border-blue-100/50 dark:border-blue-800/50 space-y-4 lg:space-y-6">
+                <h4 className="text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-widest flex items-center">
                   <Scan size={14} className="mr-2" />
                   Active Scan Inputs
                 </h4>
@@ -214,7 +214,7 @@ export const RegisterPhone: React.FC<RegisterPhoneProps> = ({
                       ref={imei1Ref}
                       required
                       maxLength={15}
-                      className="w-full px-4 py-3 rounded-xl border-2 border-transparent bg-white focus:border-blue-500 font-mono text-base lg:text-xl outline-none transition-all shadow-sm"
+                      className="w-full px-4 py-3 rounded-xl border-2 border-transparent bg-white dark:bg-slate-700 dark:text-white dark:placeholder:text-slate-500 focus:border-blue-500 font-mono text-base lg:text-xl outline-none transition-all shadow-sm"
                       placeholder="SCAN HERE..."
                       value={form.imei1}
                       onChange={e => {
@@ -230,7 +230,7 @@ export const RegisterPhone: React.FC<RegisterPhoneProps> = ({
                       ref={imei2Ref}
                       required
                       maxLength={15}
-                      className="w-full px-4 py-3 rounded-xl border-2 border-transparent bg-white focus:border-blue-500 font-mono text-base lg:text-xl outline-none transition-all shadow-sm"
+                      className="w-full px-4 py-3 rounded-xl border-2 border-transparent bg-white dark:bg-slate-700 dark:text-white dark:placeholder:text-slate-500 focus:border-blue-500 font-mono text-base lg:text-xl outline-none transition-all shadow-sm"
                       placeholder="SCAN HERE..."
                       value={form.imei2}
                       onChange={e => setForm({...form, imei2: e.target.value.replace(/[^0-9]/g, '')})}
@@ -245,11 +245,11 @@ export const RegisterPhone: React.FC<RegisterPhoneProps> = ({
               </div>
 
               {/* Form Actions */}
-              <div className="flex items-center justify-between pt-3 lg:pt-4 border-t border-gray-100">
+              <div className="flex items-center justify-between pt-3 lg:pt-4 border-t border-gray-100 dark:border-slate-700">
                 <button
                   type="button"
                   onClick={handleReset}
-                  className="flex items-center text-gray-400 hover:text-red-500 font-black text-[10px] uppercase tracking-widest transition-colors"
+                  className="flex items-center text-gray-400 dark:text-slate-500 hover:text-red-500 font-black text-[10px] uppercase tracking-widest transition-colors"
                 >
                   <RotateCcw className="mr-2" size={16} />
                   Clear Current
@@ -278,7 +278,7 @@ export const RegisterPhone: React.FC<RegisterPhoneProps> = ({
 
         {/* RIGHT COLUMN: Registration Queue */}
         <div className="lg:col-span-5 lg:sticky lg:top-24">
-          <div className="bg-white rounded-2xl lg:rounded-[2rem] shadow-xl border border-gray-100 overflow-hidden flex flex-col h-full max-h-[calc(100vh-200px)] lg:max-h-[calc(100vh-160px)]">
+          <div className="bg-white dark:bg-slate-800 rounded-2xl lg:rounded-[2rem] shadow-xl border border-gray-100 dark:border-slate-700 overflow-hidden flex flex-col h-full max-h-[calc(100vh-200px)] lg:max-h-[calc(100vh-160px)]">
             <div className="p-4 lg:p-6 bg-slate-900 text-white flex items-center justify-between shrink-0">
               <div className="flex items-center">
                 <History className="mr-2 lg:mr-3 text-blue-400 w-5 h-5" />
@@ -297,26 +297,26 @@ export const RegisterPhone: React.FC<RegisterPhoneProps> = ({
                 
                 <div className="space-y-2 lg:space-y-3">
                   {queue.length === 0 ? (
-                    <div className="py-16 lg:py-24 border-2 border-dashed border-gray-50 rounded-2xl lg:rounded-[2rem] flex flex-col items-center justify-center text-gray-300">
+                    <div className="py-16 lg:py-24 border-2 border-dashed border-gray-50 dark:border-slate-700 rounded-2xl lg:rounded-[2rem] flex flex-col items-center justify-center text-gray-300 dark:text-slate-500">
                       <Barcode size={36} className="lg:w-12 lg:h-12 mb-2 lg:mb-3 opacity-10" />
                       <p className="text-[10px] font-black uppercase tracking-widest text-center px-4 lg:px-6">Queue Empty</p>
-                      <p className="text-[9px] font-medium text-gray-400 mt-1 uppercase text-center">Configure model & scan IMEIs to stage</p>
+                      <p className="text-[9px] font-medium text-gray-400 dark:text-slate-500 mt-1 uppercase text-center">Configure model & scan IMEIs to stage</p>
                     </div>
                   ) : (
                     queue.map((p, idx) => (
-                      <div key={p.id} className="bg-slate-50 px-4 lg:px-5 py-3 lg:py-4 rounded-xl lg:rounded-2xl border border-slate-100 flex items-center justify-between group hover:bg-white hover:shadow-md transition-all animate-in slide-in-from-right-4">
+                      <div key={p.id} className="bg-slate-50 dark:bg-slate-700/50 px-4 lg:px-5 py-3 lg:py-4 rounded-xl lg:rounded-2xl border border-slate-100 dark:border-slate-600 flex items-center justify-between group hover:bg-white dark:hover:bg-slate-600 hover:shadow-md transition-all animate-in slide-in-from-right-4">
                         <div className="flex items-center gap-3 lg:gap-4">
-                          <div className="w-7 lg:w-8 h-7 lg:h-8 bg-blue-100 text-blue-600 rounded-lg flex items-center justify-center font-black text-[10px]">
+                          <div className="w-7 lg:w-8 h-7 lg:h-8 bg-blue-100 dark:bg-blue-900/50 text-blue-600 dark:text-blue-400 rounded-lg flex items-center justify-center font-black text-[10px]">
                             {queue.length - idx}
                           </div>
                           <div>
-                            <p className="font-bold text-slate-900 leading-none text-sm lg:text-base">{p.model}</p>
-                            <p className="text-[9px] lg:text-[10px] text-slate-400 font-bold uppercase tracking-widest mt-1.5">{p.brand} - {p.imei1.slice(-4)}</p>
+                            <p className="font-bold text-slate-900 dark:text-white leading-none text-sm lg:text-base">{p.model}</p>
+                            <p className="text-[9px] lg:text-[10px] text-slate-400 dark:text-slate-400 font-bold uppercase tracking-widest mt-1.5">{p.brand} - {p.imei1.slice(-4)}</p>
                           </div>
                         </div>
                         <button 
                           onClick={() => removeFromQueue(p.id)}
-                          className="p-1.5 lg:p-2 text-gray-300 hover:text-red-500 hover:bg-red-50 rounded-lg transition-all opacity-0 group-hover:opacity-100"
+                          className="p-1.5 lg:p-2 text-gray-300 dark:text-slate-400 hover:text-red-500 hover:bg-red-50 dark:hover:bg-red-900/30 rounded-lg transition-all opacity-0 group-hover:opacity-100"
                         >
                           <Trash2 size={16} className="lg:w-[18px]" />
                         </button>
@@ -329,11 +329,11 @@ export const RegisterPhone: React.FC<RegisterPhoneProps> = ({
 
             {/* Final Action Area */}
             {queue.length > 0 && (
-              <div className="p-4 lg:p-8 border-t border-slate-100 bg-slate-50/50 shrink-0">
+              <div className="p-4 lg:p-8 border-t border-slate-100 dark:border-slate-700 bg-slate-50/50 dark:bg-slate-700/30 shrink-0">
                 <div className="flex items-center justify-between mb-4 lg:mb-6">
                   <div>
                     <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Total Batch Value</p>
-                    <p className="text-xl lg:text-2xl font-black text-slate-900">
+                    <p className="text-xl lg:text-2xl font-black text-slate-900 dark:text-white">
                       ${queue.reduce((sum, p) => sum + p.price, 0).toLocaleString()}
                     </p>
                   </div>
@@ -341,7 +341,7 @@ export const RegisterPhone: React.FC<RegisterPhoneProps> = ({
                 <button
                   onClick={handleFinalizeBatch}
                   disabled={isProcessing}
-                  className="w-full py-4 lg:py-5 bg-slate-900 hover:bg-black text-white rounded-xl lg:rounded-2xl font-black flex items-center justify-center transition-all shadow-xl shadow-slate-200 active:scale-95 text-xs uppercase tracking-[0.2em] gap-2 lg:gap-3"
+                  className="w-full py-4 lg:py-5 bg-slate-900 hover:bg-black text-white rounded-xl lg:rounded-2xl font-black flex items-center justify-center transition-all shadow-xl shadow-slate-200 dark:shadow-none active:scale-95 text-xs uppercase tracking-[0.2em] gap-2 lg:gap-3"
                 >
                   {isProcessing ? (
                     <Loader2 className="animate-spin w-5 h-5" />
