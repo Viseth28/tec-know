@@ -154,14 +154,12 @@ export const Layout: React.FC<LayoutProps> = ({
       <main className="flex-1 overflow-y-auto bg-gray-50/50 flex flex-col min-w-0">
         <header className="bg-white/80 backdrop-blur-md border-b sticky top-0 z-40 px-4 lg:px-8 py-3 lg:py-4 flex justify-between items-center shadow-sm">
           <div className="flex items-center gap-3">
-            {isMobile && (
-              <button 
-                onClick={() => setIsSidebarOpen(true)}
-                className="p-2 hover:bg-gray-100 rounded-xl transition-colors"
-              >
-                <Menu size={24} />
-              </button>
-            )}
+            <button 
+              onClick={() => setIsSidebarOpen(true)}
+              className="p-2 hover:bg-gray-100 rounded-xl transition-colors"
+            >
+              <Menu size={24} />
+            </button>
             <h1 className="text-lg lg:text-2xl font-black text-slate-900 capitalize flex items-center tracking-tight">
               {(() => {
                 const match = menuItems.find(mi => mi.path === location.pathname);
