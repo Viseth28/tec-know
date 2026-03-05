@@ -13,7 +13,9 @@ import {
   HardDrive,
   RefreshCw,
   LogOut,
-  Database
+  Database,
+  Moon,
+  Sun
 } from 'lucide-react';
 import { ViewType, AdminUser } from '../types';
 import { dbService } from '../services/db';
@@ -35,8 +37,21 @@ export const Layout: React.FC<LayoutProps> = ({
 }) => {
   const [isSidebarOpen, setIsSidebarOpen] = React.useState(true);
   const [isMobile, setIsMobile] = React.useState(false);
+  const [darkMode, setDarkMode] = React.useState(() => {
+    const saved = localStorage.getItem('darkMode');
+    return saved ? JSON.parse(saved) : false;
+  });
   const mode = dbService.getMode();
   const location = useLocation();
+
+  React.useEffect(() => {
+    if (darkMode) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+    localStorage.setItem('darkMode', JSON.stringify(darkMode));
+  }, [darkMode]);
 
   React.useEffect(() => {
     const checkMobile = () => {
@@ -151,8 +166,8 @@ export const Layout: React.FC<LayoutProps> = ({
       </aside>
 
       {/* Main Content */}
-      <main className="flex-1 overflow-y-auto bg-gray-50/50 flex flex-col min-w-0">
-        <header className="bg-white/80 backdrop-blur-md border-b sticky top-0 z-40 px-4 lg:px-8 py-3 lg:py-4 flex justify-between items-center shadow-sm">
+      <main className="flex-1 overflow-y-auto bg-gray-50 dark:bg-slate-900/50 flex flex-col min-w-0">
+        <header className="bg-white/80 dark:bg-slate-800/80 backdrop-blur-md border-b dark:border-slate-700 sticky top-0 z-40 px-4 lg:px-8 py-3 lg:py-4 flex justify-between items-center shadow-sm">
           <div className="flex items-center gap-3">
             <button 
               onClick={() => setIsSidebarOpen(true)}
@@ -170,9 +185,15 @@ export const Layout: React.FC<LayoutProps> = ({
           
           <div className="flex items-center space-x-2 lg:space-x-6">
             {getSyncIndicator()}
-            <div className="flex items-center space-x-2 lg:space-x-4 border-l pl-3 lg:pl-6 border-gray-100">
+            <button 
+              onClick={() => setDarkMode(!darkMode)}
+              className="p-2.5 hover:bg-gray-100 dark:hover:bg-slate-700 rounded-xl transition-colors"
+            >
+              {darkMode ? <Sun size={20} className="text-yellow-400" /> : <Moon size={20} className="text-slate-600" />}
+            </button>
+            <div className="flex items-center space-x-2 lg:space-x-4 border-l pl-3 lg:pl-6 border-gray-100 dark:border-slate-700">
               <div className="text-right hidden sm:block">
-                <p className="text-sm font-black text-slate-900 leading-none">{currentUser?.name || 'Guest User'}</p>
+                <p className="text-sm font-black text-slate-900 dark:text-white leading-none">{currentUser?.name || 'Guest User'}</p>
                 <p className="text-[10px] text-slate-400 font-black uppercase tracking-widest mt-1.5">{currentUser?.department || 'Visitor'}</p>
               </div>
               

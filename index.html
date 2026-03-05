@@ -6,16 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TEC-Know</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class'
+      }
+    </script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
       body {
         font-family: 'Inter', sans-serif;
       }
     </style>
-    <!-- Removed importmap so Vite handles module resolution from node_modules -->
+  <!-- Removed importmap so Vite handles module resolution from node_modules -->
 <link rel="stylesheet" href="/index.css">
 </head>
-  <body class="bg-gray-50">
+  <body class="bg-gray-50 dark:bg-slate-900">
     <div id="root"></div>
   <script type="module" src="/index.tsx"></script>
 </body>
